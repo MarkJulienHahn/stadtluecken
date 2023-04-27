@@ -9,7 +9,7 @@ import Footer from "@/Components/Footer";
 
 import { useRouter } from "next/router";
 
-const projekte = ({ projekt }) => {
+const Projekte = ({ projekt }) => {
   const [length, setLength] = useState(2);
   const [currentIndex, setCurrentIndex] = useState(null)
 
@@ -55,7 +55,7 @@ const projekte = ({ projekt }) => {
   );
 };
 
-export default projekte;
+export default Projekte;
 
 export async function getServerSideProps() {
   const projekt = await client.fetch(`* [_type == "projekte"]{..., 

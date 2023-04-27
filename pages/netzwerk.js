@@ -8,7 +8,7 @@ import NetzwerkPost from "@/Components/NetzwerkPost";
 import MouseElement from "@/Components/MouseElement";
 import Footer from "@/Components/Footer";
 
-const netzwerk = ({ netzwerk }) => {
+const Netzwerk = ({ netzwerk }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [filterCat, setFilterCat] = useState();
   const [filterCity, setFilterCity] = useState();
@@ -118,7 +118,7 @@ const netzwerk = ({ netzwerk }) => {
   );
 };
 
-export default netzwerk;
+export default Netzwerk;
 
 export async function getServerSideProps() {
   const netzwerk = await client.fetch(`
