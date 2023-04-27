@@ -1,0 +1,22 @@
+.landingOuter {
+    height: 300vh;
+    width: 100vw;
+    overflow:visible
+}
+
+.landingTypo {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--spaceSmall)
+
+}
+
+.landingTypo h1 {
+    transition: all 1s ease
+}

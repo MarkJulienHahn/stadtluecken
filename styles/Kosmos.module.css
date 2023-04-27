@@ -1,0 +1,87 @@
+.wrapper {
+  margin-top: var(--spaceMedium);
+  padding: var(--spaceSmall);
+  width: 100vw;
+}
+
+.content {
+  margin-top: var(--spaceLarge);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.kosmosPost {
+  width: calc(33% - 15px);
+  margin-bottom: var(--spaceLarge);
+  height: auto;
+  cursor: pointer;
+}
+
+.previewImage {
+  width: 100%;
+}
+
+.swiperImage img {
+  height: 400px;
+  position: relative !important;
+}
+
+.plus {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.plus h2 {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.plus h2:hover {
+  transform: rotate(90deg) translateY(-9px) translateX(7px);
+}
+
+.kosmosOverlay {
+  position: absolute;
+  height: auto;
+  width: calc(33%);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(15px);
+  z-index: 100;
+  cursor: default;
+}
+
+.kosmosOverlay h2:hover {
+  animation: wiggle 0.3s alternate-reverse infinite;
+}
+
+.column {
+  display: flex;
+  padding-top: 30px;
+}
+
+.link {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.header {
+  width: 150px;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  33% {
+    transform: rotateZ(-1deg);
+  }
+  66% {
+    transform: rotateZ(1deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}

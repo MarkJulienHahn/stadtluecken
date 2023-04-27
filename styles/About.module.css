@@ -1,0 +1,55 @@
+.wrapper {
+  width: 100vw;
+  padding: var(--spaceSmall);
+}
+
+.text {
+  font-size: var(--pBig-size);
+  line-height: var(--pBig-lineHeight);
+  word-spacing: var(--pBig-wordSpacing);
+  padding-bottom: var(--spaceLarge);
+}
+
+.headline {
+  font-size: var(--pMedium-size);
+  line-height: var(--pMedium-lineHeight);
+  word-spacing: var(--pMedium-wordSpacing);
+}
+
+.list {
+  font-size: var(--pBig-size);
+  line-height: var(--pBig-lineHeight);
+  word-spacing: var(--pBig-wordSpacing);
+  padding-bottom: var(--spaceLarge);
+}
+
+.info {
+  display: flex;
+  width: 100%;
+  padding-bottom: var(--spaceLarge);
+}
+
+.info .headline {
+  width: 50%;
+}
+
+.links {
+  font-family: "Protest Poster";
+  font-size: var(--H2-size);
+  line-height: var(--H2-lineHeight);
+  letter-spacing: var(--H2-letterSpacing);
+}
+
+.link {
+  cursor: pointer;
+  position: relative;
+}
+
+.link:hover {
+  animation: wiggle 0.3s alternate-reverse infinite;
+}
+
+@keyframes wiggle {
+  0% {color: red}
+  100% {color: blue}
+}

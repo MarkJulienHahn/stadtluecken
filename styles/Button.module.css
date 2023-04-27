@@ -1,0 +1,9 @@
+.hoverButton {
+    pointer-events: none;
+    z-index: 100;
+    font-size: 60px;
+    color: white;
+    mix-blend-mode: difference;
+    transform: translate(-30px, -50px);
+    white-space: nowrap;
+}

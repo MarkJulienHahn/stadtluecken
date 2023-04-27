@@ -1,0 +1,152 @@
+.wrapper {
+  margin-top: var(--spaceMedium);
+  padding: var(--spaceSmall);
+  width: 100vw;
+}
+
+.listHeader {
+  margin-top: var(--spaceMedium);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.bodyName span,
+.bodyCategory span,
+.bodyCity span,
+.headerCategory span,
+.headerCity span {
+  cursor: pointer;
+}
+
+.headerName {
+  width: 50%;
+}
+
+.headerCategory,
+.headerCity {
+  width: 25%;
+  text-align: right;
+}
+
+.listBody {
+  margin-top: var(--spaceExtraSmall);
+  min-height: 100vh;
+}
+
+.listRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.bodyName {
+  width: 50%;
+  font-family: "Protest Poster";
+  font-size: var(--H4-size);
+  letter-spacing: var(--H4-letterSpacing);
+  display: flex;
+}
+
+.animation {
+  display: block;
+  cursor: pointer;
+}
+
+.animation:hover {
+  animation: smallWiggle 0.3s alternate-reverse infinite;
+}
+
+.bodyCategory,
+.bodyCity {
+  width: 25%;
+  text-align: right;
+  font-family: "Protest Poster";
+  font-size: var(--H4-size);
+  letter-spacing: var(--H4-letterSpacing);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.accordeon {
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.accordeonInner {
+  display: flex;
+}
+
+.accordeonText,
+.accordeonImages {
+  width: 50%;
+}
+
+.accordeonText {
+  padding-right: 15px;
+}
+
+.accordeonImages {
+  cursor: none;
+}
+
+.imageWrapper {
+  position: relative;
+  /* overflow: hidden; */
+  /* display: flex;
+  justify-content: flex-end; */
+}
+
+.imageWrapper img {
+  position: relative !important;
+}
+
+.netzwerkLink {
+  margin-top: 30px;
+  width: 140px;
+}
+
+.netzwerkLink:hover {
+  animation: bigWiggle 0.3s alternate-reverse infinite;
+}
+
+@keyframes bigWiggle {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  33% {
+    transform: rotateZ(-3deg);
+  }
+  66% {
+    transform: rotateZ(3deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes smallWiggle {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  33% {
+    transform: rotateZ(-1deg);
+  }
+  66% {
+    transform: rotateZ(1deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,81 @@
+import { useState } from "react";
+import styles from "../../styles/Projekte.module.css";
+
+import { useRouter } from "next/router";
+import { useInView } from "react-intersection-observer";
+
+import Headline from "./Headline";
+import Text from "./Text";
+import Table from "./Table";
+import Slider from "./Slider";
+import ImageBottom from "./ImageBottom";
+import Archiv from "./Archiv";
+
+const Projekt = ({ currentProjekt, i }) => {
+  const [move, setMove] = useState(0);
+  const [archive, setArchive] = useState(false);
+
+  const router = useRouter();
+
+  const routerAction = () => {
+    router.push("/projekte");
+  };
+
+  const archiveAction = () => {
+    router.push(`/projekte/${currentProjekt.slug.current}/archive`),
+      setArchive(true);
+  };
+
+  const close = () => {
+    setMove(100), setTimeout(routerAction, 500);
+  };
+
+  const { ref, inView, entry } = useInView({
+    threshold: 0,
+  });
+
+  return (
+    <>
+      {!move && (
+        <div className={styles.projektNav}>
+          <span onClick={close}>zurück</span>
+        </div>
+      )}
+
+      {archive && (
+        <Archiv archiv={currentProjekt.archiv} setArchive={setArchive} />
+      )}
+
+      <div
+        className={styles.projektWrapper}
+        style={{ marginTop: move ? "100vh" : "0vh" }}
+      >
+        <div className={styles.projektInner}>
+          <Slider currentProjekt={currentProjekt} />
+          <ImageBottom
+            inView={inView}
+            currentProjekt={currentProjekt}
+            setArchive={setArchive}
+          />
+          <div className={styles.projektMainPadding}></div>
+          <div>
+            <div className={styles.projektMain}>
+              <Table currentProjekt={currentProjekt} />
+              <Headline currentProjekt={currentProjekt} />
+              <Text currentProjekt={currentProjekt} />
+            </div>
+            <div className={styles.projektMainPaddingBottom} ref={ref}>
+              {currentProjekt.archivAbfrage && (
+                <div className={styles.archiv}>
+                  <h1 onClick={archiveAction}>Archiv</h1>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Projekt;

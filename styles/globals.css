@@ -1,76 +1,50 @@
 :root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --spaceExtraSmall: 15px;
+  --spaceSmall: 30px;
+  --spaceMedium: 45px;
+  --spaceLarge: 100px;
+  --spaceExtraLarge: 200px;
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --H1-size: clamp(10px, 28vh, 16vw);
+  --H1-lineHeight: clamp(10px, 23vh, 15vw);
+  --H1-letterSpacing: clamp(-1px, -0.4vh, 10000px);
 
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
+  --H2-size: clamp(10px, 12vh, 7.5vw);
+  --H2-lineHeight: clamp(10px, 12vh, 7.5vw);
+  --H2-letterSpacing: clamp(-1px, -0.2vh, 10000px);
 
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
+  --H3-size: clamp(10px, 7vh, 16vw);
+  --H3-lineHeight: clamp(10px, 7vh, 15vw);
+  --H3-letterSpacing: clamp(-1px, 0vh, 10000px);
 
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+  --H4-size: clamp(24px, 3.5vh, 35px);
+  --H4-lineHeight: clamp(28px, 4vh, 40px);
+  --H4-letterSpacing: clamp(-1px, 0.1vh, 10000px);
+
+  --pMedium-size: 17pt;
+  --pMedium-lineHeight: 20pt;
+
+  --pBig-size: 27pt;
+  --pBig-lineHeight: 30.5pt;
+  --pBig-wordSpacing: -3px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@font-face {
+  font-family: "Protest Book";
+  font-style: normal;
+  src: url(../public/fonts/ProtestGrotesk-130-Book.otf) format("opentype");
+}
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
+@font-face {
+  font-family: "Protest Book Italic";
+  font-style: normal;
+  src: url(../public/fonts/ProtestGrotesk-130-BookItalic.otf) format("opentype");
+}
 
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
+@font-face {
+  font-family: "Protest Poster";
+  font-style: normal;
+  src: url(../public/fonts/ProtestGrotesk-Poster.otf) format("opentype");
 }
 
 * {
@@ -79,20 +53,47 @@
   margin: 0;
 }
 
+::selection {
+  background: black;
+  color: white;
+}
+
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  font-family: "Protest Book";
+  font-feature-settings: "ss01";
+  font-size: 15pt;
+  font-variation-settings: "wght" 10;
+  background: white;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+h1 {
+  font-family: "Protest Poster";
+  font-size: var(--H1-size);
+  line-height: var(--H1-lineHeight);
+  letter-spacing: var(--H1-letterSpacing);
+}
+
+h2 {
+  font-family: "Protest Poster";
+  font-size: var(--H2-size);
+  line-height: var(--H2-lineHeight);
+  letter-spacing: var(--H2-letterSpacing);
+}
+
+h3 {
+  font-family: "Protest Poster";
+  font-size: var(--H3-size);
+  line-height: var(--H3-lineHeight);
+  letter-spacing: var(--H3-letterSpacing);
+}
+
+h4 {
+  font-family: "Protest Poster";
+  font-size: var(--H4-size);
+  line-height: var(--H4-lineHeight);
+  letter-spacing: var(--H4-letterSpacing);
 }
 
 a {
@@ -100,8 +101,28 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+ul {
+  list-style: none;
+}
+
+.animation li.rightbound {
+  text-align: right;
+  white-space: nowrap;
+  width: 100%;
+  transition: width 0.4s ease;
+}
+
+ul:hover > li.rightbound {
+  width: 0;
+}
+
+.animation li.leftbound {
+  text-align: right;
+  white-space: nowrap;
+  width: 0;
+  transition: width 0.4s ease;
+}
+
+ul:hover > li.leftbound {
+  width: 100%;
 }
