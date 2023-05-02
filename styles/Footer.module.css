@@ -2,7 +2,9 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: var(--spaceLarge) 0 var(--spaceExtraSmall)
+    padding: var(--spaceLarge) 0 var(--spaceExtraSmall);
+    background: white;
+    z-index: 100;
 }
 
 .logo {

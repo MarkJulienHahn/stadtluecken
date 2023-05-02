@@ -30,8 +30,13 @@ const Projekt = ({ currentProjekt, i }) => {
     setMove(100), setTimeout(routerAction, 500);
   };
 
-  const { ref, inView, entry } = useInView({
+  const { ref, inView} = useInView({
     threshold: 0,
+  });
+
+
+  const [ ref2, inView2 ] = useInView({
+    threshold: 1,
   });
 
   return (
@@ -66,8 +71,8 @@ const Projekt = ({ currentProjekt, i }) => {
             </div>
             <div className={styles.projektMainPaddingBottom} ref={ref}>
               {currentProjekt.archivAbfrage && (
-                <div className={styles.archiv}>
-                  <h1 onClick={archiveAction}>Archiv</h1>
+                <div className={styles.archiv} style={inView2 ? {opacity: "1"} : {opacity: "0"}}>
+                  <h1 onClick={archiveAction} ref={ref2}>Archiv</h1>
                 </div>
               )}
             </div>

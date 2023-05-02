@@ -16,9 +16,7 @@ export default function Home({ stadtluecken, mitglieder }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Landing />
-        <About stadtluecken={stadtluecken[0]} mitglieder={mitglieder}/>
-        <Footer />
+        <Landing stadtluecken={stadtluecken[0]} mitglieder={mitglieder}/>
       </main>
     </>
   );

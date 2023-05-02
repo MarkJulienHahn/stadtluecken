@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import styles from "../styles/Projekte.module.css";
 import ProjektPreview from "@/Components/ProjektPreview";
@@ -11,41 +11,54 @@ import { useRouter } from "next/router";
 
 const Projekte = ({ projekt }) => {
   const [length, setLength] = useState(2);
-  const [currentIndex, setCurrentIndex] = useState(null)
+  const [currentIndex, setCurrentIndex] = useState(null);
+  const [scrollHeight, setScrollHeight] = useState("")
+
+  const ref = useRef();
+
+  const scrollAction = () =>
+    ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   const updateLength = () => {
     setLength(length + 2);
+    setTimeout(scrollAction, 200);
   };
 
   const router = useRouter();
 
   useEffect(() => {
-    setCurrentIndex(router.query.image)
-  }, [router])
+    setCurrentIndex(router.query.image);
+  }, [router]);
 
   return (
     <>
-
-
-
       {router.query.image && (
-        <Projekt currentProjekt={projekt[router.query.image]} i={currentIndex}/>
+        <Projekt
+          currentProjekt={projekt[router.query.image]}
+          i={currentIndex}
+        />
       )}
 
       <div className={styles.wrapper}>
         {projekt.map((projekt, i) =>
           i < length ? (
-            <ProjektPreview
-              key={i}
-              i={i}
-              titel={projekt.titelUebersicht}
-              bild={projekt.bildPreview}
-              slug={projekt.slug}
-            />
+            <>
+              <ProjektPreview
+                key={i}
+                i={i}
+                titel={projekt.titelUebersicht}
+                bild={projekt.bildPreview}
+                slug={projekt.slug}
+                setScrollHeight={setScrollHeight}
+              />
+            </>
           ) : (
             ""
           )
         )}
+
+        <div className={styles.anchor} ref={ref} style={{transform: `translateY(-${scrollHeight + 150}px)`}}></div>
+
         <div className={styles.plus} onClick={updateLength}>
           <h2>+</h2>
         </div>

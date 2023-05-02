@@ -45,8 +45,6 @@ const Archiv = ({ archiv, setArchive }) => {
     ? archiv.filter((entry) => entry.kategorie.kategorie == filter)
     : archiv;
 
-  console.log(archivFiltered);
-
   return (
     <>
       {lightbox && <Lightbox lightbox={lightbox} setLightbox={setLightbox} />}

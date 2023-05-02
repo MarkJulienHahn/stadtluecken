@@ -175,6 +175,7 @@
   align-items: center;
   color: white;
   pointer-events: none;
+  transition: all 0.2s ease;
 }
 
 .archiv h1 {
@@ -333,4 +334,9 @@
   font-size: 14pt;
   line-height: 18pt;
   padding-bottom: 10px;
+}
+
+.anchor {
+  width: 100%;
+  opacity: 0;
 }

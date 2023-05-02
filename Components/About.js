@@ -2,7 +2,6 @@ import styles from "../styles/About.module.css";
 import { PortableText } from "@portabletext/react";
 
 const About = ({ stadtluecken, mitglieder }) => {
-  console.log(mitglieder);
   return (
     <div className={styles.wrapper}>
       <div className={styles.text}>
@@ -21,8 +20,8 @@ const About = ({ stadtluecken, mitglieder }) => {
       <ul className={styles.list}>
       {mitglieder.map((mitglied, i) => 
           !mitglied.aktiv &&
-          <li key={i}>
-            {mitglied.name} ({mitglied.taetigkeit})
+          <li key={i}> 
+            {mitglied.name} ({mitglied.taetigkeit}) {mitglied.website && <a className={styles.link} href={mitglied.website} target="blank" rel="_noreferrer">↗</a>}
           </li>
         )}
       </ul>

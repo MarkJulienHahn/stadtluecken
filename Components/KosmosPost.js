@@ -16,8 +16,6 @@ const KosmosPost = ({ eintrag }) => {
   const [overlay, setOverlay] = useState(false);
   const ref = useRef();
 
-  console.log(eintrag);
-
   return (
     <>
       <div

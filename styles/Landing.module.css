@@ -1,22 +1,46 @@
 .landingOuter {
-    height: 300vh;
-    width: 100vw;
-    overflow:visible
+  height: 100vh;
+  width: 100vw;
+  overflow: visible;
 }
 
 .landingTypo {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: var(--spaceSmall)
+  /* position: -webkit-sticky;
+  position: sticky; */
+  position: relative;
+  top: 0;
+  /* height: 100vh; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--spaceSmall);
+  cursor: default;
+}
 
+.landingOuter::selection {
+  background: none;
+  color: black;
 }
 
 .landingTypo h1 {
-    transition: all 1s ease
+  transition: all 1s ease;
+}
+
+.landingObjects {
+  /* position: absolute; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  pointer-events: none;
+  /* width: 100vw;
+  overflow-x: hidden;
+  pointer-events: none; */
+}
+
+.bottomWrapper {
+    height: 300vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
