@@ -9,7 +9,7 @@ import img04 from "../public/image/stadtluecken_poller.png";
 import img05 from "../public/image/stadtluecken_gullideckel_02.png";
 import img06 from "../public/image/stadtluecken_stein.png";
 
-import LandingObject from "./Projekt/LandingObject";
+import LandingObject from "./LandingObject";
 import About from "./About";
 import Footer from "./Footer";
 
@@ -44,6 +44,8 @@ const Landing = ({ stadtluecken, mitglieder }) => {
   // }, [x,y]);
 
   // console.log(xFactor, yFactor);
+
+
 
   return (
     <div className={styles.landingOuter}>

@@ -126,3 +126,29 @@ ul:hover > li.rightbound {
 ul:hover > li.leftbound {
   width: 100%;
 }
+
+@media screen and (max-width: 1000px) {
+  :root {
+    --spaceExtraSmall: 15px;
+    --spaceSmall: 20px;
+    --spaceMedium: 45px;
+    --spaceLarge: 100px;
+    --spaceExtraLarge: 200px;
+
+    --H3-size: clamp(10px, 5vh, 16vw);
+    --H3-lineHeight: clamp(10px, 5vh, 15vw);
+    --H3-letterSpacing: clamp(-1px, 0.1vh, 10000px);
+
+    --H2-size: clamp(10px, 7vh, 100vw);
+    --H2-lineHeight: clamp(10px, 7vh, 100vw);
+    --H2-letterSpacing: clamp(-1px, -0.05vh, 10000px);
+
+    --pBig-size: 11pt;
+    --pBig-lineHeight: 15.5pt;
+    --pBig-wordSpacing: 0px;
+
+    --pMedium-size: 11pt;
+    --pMedium-lineHeight: 15.5pt;
+    --pMedium-wordSpacing: 0px;
+  }
+}

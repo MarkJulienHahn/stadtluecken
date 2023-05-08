@@ -1,10 +1,10 @@
-import styles from "../../styles/Landing.module.css";
+import styles from "../styles/Landing.module.css";
 import Image from "next/image";
 
 const LandingObject = ({ img, front, offset, scale, rotate }) => {
   const style = {
-    width: "40vw",
-    height: "60vw",
+    width: "clamp(300px, 40vw, 40vw)",
+    height: "clamp(300px, 60vw, 60vw)",
     position: "relative",
     transform: `scale(${scale}%) translate3d(${offset}) rotate(${rotate}deg)`,
     // zIndex: front ? "100" : "0",

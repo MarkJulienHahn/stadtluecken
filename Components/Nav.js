@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import { Squash as Hamburger } from "hamburger-react";
+
 import styles from "../styles/Nav.module.css";
 
 import use100vh from "react-div-100vh";
@@ -29,7 +31,6 @@ const Nav = ({ active, setActive }) => {
     if (scrollPosition > 500) setActive(false);
   }, [scrollPosition > 500]);
 
-
   return (
     <div style={{ background: "white" }}>
       <div
@@ -38,6 +39,9 @@ const Nav = ({ active, setActive }) => {
         }`}
         style={active ? { height: windowHeight } : { height: "50px" }}
       >
+        <div className={styles.hamburgerWrapper}>
+          <Hamburger toggled={active} onToggle={() => setActive(!active)}/>
+        </div>
         <Link href="/" onClick={() => setActive(!active)}>
           <p style={router.pathname !== "/" && !active ? invisible : visible}>
             stadtlücken

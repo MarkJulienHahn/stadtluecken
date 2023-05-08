@@ -150,3 +150,53 @@
     opacity: 1;
   }
 }
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    margin: 0;
+    padding: 0;
+    padding-top: 100px;
+  }
+  .listHeader,
+  .bodyCategory,
+  .bodyCity {
+    display: none;
+  }
+  .bodyName {
+    width: 100%;
+    font-size: var(--H3-size);
+    line-height: var(--H3-lineHeight);
+    letter-spacing: var(--H3-letterSpacing);
+  }
+  .listRow {
+    height: auto !important;
+    width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    padding: 10px var(--spaceSmall);
+  }
+  .eintragWrapper {
+    background: white;
+    filter: drop-shadow(0px -11px 7px rgba(0, 0, 0, 0.1));
+  }
+  .accordeonInner {
+    flex-flow: column;
+  }
+  .accordeonText,
+  .accordeonImages {
+    width: 100%;
+  }
+  .accordeonText {
+    padding: 0 var(--spaceSmall) var(--spaceSmall)
+  }
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+}

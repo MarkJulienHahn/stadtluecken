@@ -10,7 +10,7 @@ import "swiper/css/effect-fade";
 import { EffectFade } from "swiper";
 import NetzwerkSliderInner from "./NetzwerkSliderInner";
 
-const NetzwerkPost = ({
+const NetzwerkPostMobile = ({
   activeIndex,
   setActiveIndex,
   setFilterCat,
@@ -63,8 +63,8 @@ const NetzwerkPost = ({
   }, [filterCat, filterCity]);
 
   useEffect(() => {
-    setTimeout(setTextHeight(ref.current.clientHeight), 500);
-  }, []);
+    setHeight(ref.current.clientHeight);
+  });
 
   return (
     <>
@@ -82,39 +82,12 @@ const NetzwerkPost = ({
         >
           <span className={styles.animation}>{name}</span>
         </div>
-        <div
-          className={styles.bodyCategory}
-          onClick={
-            !filterCat ? () => setFilterCat(category) : () => setFilterCat(null)
-          }
-        >
-          <span className={styles.animation}>{category}</span>
-        </div>
-        <div
-          className={styles.bodyCity}
-          onClick={
-            !filterCity ? () => setFilterCity(city) : () => setFilterCity(null)
-          }
-        >
-          <span className={styles.animation}>{city}</span>
-        </div>
       </div>
       <div
         style={activeIndex == i ? open : closed}
         className={styles.accordeon}
       >
-        <div className={styles.accordeonInner}>
-          <div className={styles.accordeonText} ref={ref}>
-            <PortableText value={beschreibung} />
-            {link && (
-              <p className={styles.netzwerkLink}>
-                <a href={link} target="_blank" rel="noreferrer">
-                  Zur Website ↗
-                </a>
-              </p>
-            )}
-          </div>
-
+        <div className={styles.accordeonInner} ref={ref}>
           <div
             className={styles.accordeonImages}
             onMouseEnter={bilder.length > 1 ? () => setLable("->") : () => {}}
@@ -140,10 +113,20 @@ const NetzwerkPost = ({
               ))}
             </Swiper>
           </div>
+          <div className={styles.accordeonText}>
+            <PortableText value={beschreibung} />
+            {link && (
+              <p className={styles.netzwerkLink}>
+                <a href={link} target="_blank" rel="noreferrer">
+                  Zur Website ↗
+                </a>
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </>
   );
 };
 
-export default NetzwerkPost;
+export default NetzwerkPostMobile;

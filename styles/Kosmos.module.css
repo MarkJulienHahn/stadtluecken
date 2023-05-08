@@ -85,3 +85,15 @@
     transform: rotateZ(0deg);
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .kosmosPost {
+    width: 100%;
+  }
+  .kosmosOverlay {
+    left: 0;
+    padding: var(--spaceSmall);
+    width: auto;
+    /* background: blue */
+  }
+}

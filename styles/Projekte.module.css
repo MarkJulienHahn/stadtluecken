@@ -340,3 +340,17 @@
   width: 100%;
   opacity: 0;
 }
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .previewWrapper {
+    width: 100%;
+    margin-bottom: var(--spaceLarge);
+    cursor: pointer;
+  }
+  .previewImage {
+    padding-top: 5px;
+  }
+}

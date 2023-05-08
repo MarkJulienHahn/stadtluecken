@@ -3,13 +3,22 @@ import Image from "next/image";
 import styles from "../styles/Netzwerk.module.css";
 import { useSwiper } from "swiper/react";
 
-const NetzwerkSliderInner = ({ bild, setHeight }) => {
+import useWindowDimensions from "@/hooks/useWindowDimensions";
+
+const NetzwerkSliderInner = ({ bild, setHeight, textHeight, height }) => {
   const swiper = useSwiper();
   const ref = useRef();
 
+  const { windowWidth } = useWindowDimensions();
+
   useEffect(() => {
-    setHeight(ref.current?.clientWidth / bild.bild.dimensions.aspectRatio);
-  }, []);
+    windowWidth < 1000
+      ? setHeight(
+          (ref.current.clientWidth / bild.bild.dimensions.aspectRatio) +
+            textHeight
+        )
+      : setHeight(ref.current?.clientWidth / bild.bild.dimensions.aspectRatio);
+  });
 
   return (
     <div

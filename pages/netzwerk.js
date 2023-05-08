@@ -1,18 +1,23 @@
 import { useState } from "react";
-import { PortableText } from "@portabletext/react";
+// import { PortableText } from "@portabletext/react";
 import client from "../client";
 
 import styles from "../styles/Netzwerk.module.css";
 
 import NetzwerkPost from "@/Components/NetzwerkPost";
+import NetzwerkPostMobile from "@/Components/NetzwerkPostMobile";
 import MouseElement from "@/Components/MouseElement";
 import Footer from "@/Components/Footer";
 
-const Netzwerk = ({ netzwerk }) => {
+import useWindowDimensions from "@/hooks/useWindowDimensions";
+
+const Netzwerk = ({ netzwerk, mobile }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [filterCat, setFilterCat] = useState();
   const [filterCity, setFilterCity] = useState();
   const [lable, setLable] = useState();
+
+  const { windowWidth } = useWindowDimensions();
 
   const netzwerkEntries = !filterCat
     ? netzwerk[0].eintrag
@@ -48,28 +53,46 @@ const Netzwerk = ({ netzwerk }) => {
             </div>
           </div>
           <div className={styles.listBody}>
-
-            
             {netzwerk[0].eintrag.map((eintrag, i) => (
-              <NetzwerkPost
-                key={i}
-                name={eintrag.name}
-                category={eintrag.kategorie.kategorie}
-                city={eintrag.stadt.stadt}
-                activeIndex={activeIndex}
-                beschreibung={eintrag.beschreibung}
-                bilder={eintrag.bilder}
-                link={eintrag.link}
-                setActiveIndex={setActiveIndex}
-                setFilterCat={setFilterCat}
-                setFilterCity={setFilterCity}
-                setLable={setLable}
-                filterCat={filterCat}
-                filterCity={filterCity}
-                i={i}
-              />
+              <div className={styles.eintragWrapper} key={i}>
+                <div className={styles.desktop}>
+                  <NetzwerkPost
+                    name={eintrag.name}
+                    category={eintrag.kategorie.kategorie}
+                    city={eintrag.stadt.stadt}
+                    activeIndex={activeIndex}
+                    beschreibung={eintrag.beschreibung}
+                    bilder={eintrag.bilder}
+                    link={eintrag.link}
+                    setActiveIndex={setActiveIndex}
+                    setFilterCat={setFilterCat}
+                    setFilterCity={setFilterCity}
+                    setLable={setLable}
+                    filterCat={filterCat}
+                    filterCity={filterCity}
+                    i={i}
+                  />
+                </div>
+                <div className={styles.mobile}>
+                  <NetzwerkPostMobile
+                    name={eintrag.name}
+                    category={eintrag.kategorie.kategorie}
+                    city={eintrag.stadt.stadt}
+                    activeIndex={activeIndex}
+                    beschreibung={eintrag.beschreibung}
+                    bilder={eintrag.bilder}
+                    link={eintrag.link}
+                    setActiveIndex={setActiveIndex}
+                    setFilterCat={setFilterCat}
+                    setFilterCity={setFilterCity}
+                    setLable={setLable}
+                    filterCat={filterCat}
+                    filterCity={filterCity}
+                    i={i}
+                  />
+                </div>
+              </div>
             ))}
-
 
             {/* {!filterCity
             ? netzwerkEntries.map((eintrag, i) => (
