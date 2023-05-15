@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { PortableText } from "@portabletext/react";
+import { PortableText } from "@portabletext/react";
 import client from "../client";
 
 import styles from "../styles/Netzwerk.module.css";
@@ -34,7 +34,7 @@ const Netzwerk = ({ netzwerk, mobile }) => {
       <MouseElement lable={lable} />
       <div className={styles.wrapper}>
         <div className={styles.introText}>
-          {/* <PortableText value={netzwerk[0].netzwerk} /> */}
+          <PortableText value={netzwerk[0]?.netzwerk} />
         </div>
         <div className={styles.listWrapper}>
           <div className={styles.listHeader}>

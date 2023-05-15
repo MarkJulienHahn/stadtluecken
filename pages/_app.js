@@ -4,7 +4,7 @@ import Nav from "@/Components/Nav";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
 export default function App({ Component, pageProps }) {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   const [mobile, setMobile] = useState(false);
 
   const { windowWidth } = useWindowDimensions();

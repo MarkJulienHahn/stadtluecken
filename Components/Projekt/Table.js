@@ -15,7 +15,7 @@ const Table = ({currentProjekt}) => {
     </div>
     <div className={styles.tableInner}>
       <div className={styles.tableHeadline}>Zeitraum</div>
-      <div className={styles.tableContent}>{start.toLocaleDateString('de-DE', options)} {currentProjekt.projektStart && `– ${end.toLocaleDateString('de-DE', options)}`}</div>
+      <div className={styles.tableContent}>{start.toLocaleDateString('de-DE', options)} {currentProjekt.projektEnde && `– ${end.toLocaleDateString('de-DE', options)}`}</div>
     </div>
     <div className={styles.tableInner}>
       <div className={styles.tableHeadline}>Thema</div>

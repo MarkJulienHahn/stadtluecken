@@ -1,14 +1,41 @@
+import { useState } from "react";
 import styles from "../styles/Footer.module.css";
 
+import Impressum from "./Impressum";
+import Datenschutz from "./Datenschutz";
+
 const Footer = () => {
+  const [overlay, setOverlay] = useState(null);
+
+  const activateImpressum = () => {
+    setOverlay("impressum");
+  };
+  const activateDatenschutz = () => {
+    setOverlay("datenschutz");
+  };
+
+  const deactivate = () => {
+    setOverlay(null);
+  }
+
   return (
-    <div className={styles.wrapper}>
-      © {new Date().getFullYear()}{" "}
-      <span className={styles.logo}>STADTLÜCKEN</span>
-      <a>Impressum</a> |
-      <a>Datenschutz</a> |
-      <a>Instagam</a>
-    </div>
+    <>
+      {overlay == "impressum" && <Impressum deactivate={deactivate} />}
+      {overlay == "datenschutz" && <Datenschutz deactivate={deactivate} />}
+      <div className={styles.wrapper}>
+        ©{new Date().getFullYear()}{" "}
+        <span className={styles.logo}>STADTLÜCKEN</span>
+        <a onClick={activateImpressum}>Impressum</a> |
+        <a onClick={activateDatenschutz}>Datenschutz</a> |
+        <a
+          href="https://www.instagram.com/stadtluecken/?hl=de"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Instagram
+        </a>
+      </div>
+    </>
   );
 };
 

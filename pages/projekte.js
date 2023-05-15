@@ -10,7 +10,7 @@ import Footer from "@/Components/Footer";
 import { useRouter } from "next/router";
 
 const Projekte = ({ projekt }) => {
-  const [length, setLength] = useState(2);
+  const [length, setLength] = useState(4);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [scrollHeight, setScrollHeight] = useState("")
 
@@ -60,7 +60,7 @@ const Projekte = ({ projekt }) => {
         <div className={styles.anchor} ref={ref} style={{transform: `translateY(-${scrollHeight + 150}px)`}}></div>
 
         <div className={styles.plus} onClick={updateLength}>
-          <h2>+</h2>
+         {length < projekt.length &&<h2>+</h2>}
         </div>
       </div>
       <Footer />
@@ -71,7 +71,7 @@ const Projekte = ({ projekt }) => {
 export default Projekte;
 
 export async function getServerSideProps() {
-  const projekt = await client.fetch(`* [_type == "projekte"]{..., 
+  const projekt = await client.fetch(`* [_type == "projekte"]|order(orderRank){..., 
   
     "bilder": bilder[]
     {..., "bild": bild{..., 
