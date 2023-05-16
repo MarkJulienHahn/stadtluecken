@@ -8,12 +8,14 @@
   margin-top: var(--spaceLarge);
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  width: calc(100vw - var(--spaceSmall));
 }
 
 .kosmosPost {
-  width: calc(33% - 15px);
+  width: calc(33% - 25px);
   margin-bottom: var(--spaceLarge);
+  margin-right: var(--spaceSmall);
   height: auto;
   cursor: pointer;
 }
@@ -47,10 +49,15 @@
   position: absolute;
   height: auto;
   width: calc(33%);
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(15px);
+  /* background: white; */
+  background: rgba(255, 255, 255, 0.95);
+  /* backdrop-filter: blur(15px); */
   z-index: 100;
   cursor: default;
+}
+
+.kosmosOverlay p {
+  padding-right: 30px;
 }
 
 .kosmosOverlay h2:hover {

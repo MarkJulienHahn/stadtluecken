@@ -15,8 +15,12 @@ const ProjektPreview = ({ i, titel, bild, slug, setScrollHeight }) => {
     setScrollHeight(ref.current.clientHeight);
   };
 
+  const scrollAction = () =>
+  ref.current.scrollIntoView({ behavior: "smooth"});
+
   useEffect(() => {
     setTimeout(getHeight, 500);
+    i > 4 && scrollAction()
   }, []);
 
   return (

@@ -9,6 +9,7 @@ import "swiper/css/effect-fade";
 
 import { EffectFade } from "swiper";
 import NetzwerkSliderInner from "./NetzwerkSliderInner";
+import NetzwerkAccordeonInner from "./NetzwerkAccordeonInner";
 
 const NetzwerkPost = ({
   activeIndex,
@@ -37,6 +38,11 @@ const NetzwerkPost = ({
   const activeStyle = { height: "clamp(28px, 5vh, 45px)", opacity: 1 };
   const inactiveStyle = { height: "0px", opacity: 0 };
 
+  const scrollUp = () => {window.scrollTo({ top: 0, behavior: 'smooth' })}
+
+  const activateCat = (cat) => {setFilterCat(cat), setActiveIndex(null), setTimeout(scrollUp, 500)}
+  const activateCity = (cit) => {setFilterCity(cit), setActiveIndex(null), setTimeout(scrollUp, 500)}
+
   useEffect(() => {
     // Kein Filter ist Aktiv
     !filterCat && !filterCity && setActive(true);
@@ -62,10 +68,6 @@ const NetzwerkPost = ({
       setActive(false);
   }, [filterCat, filterCity]);
 
-  useEffect(() => {
-    setTimeout(setTextHeight(ref.current.clientHeight), 500);
-  }, []);
-
   return (
     <>
       <div
@@ -85,7 +87,7 @@ const NetzwerkPost = ({
         <div
           className={styles.bodyCategory}
           onClick={
-            !filterCat ? () => setFilterCat(category) : () => setFilterCat(null)
+            !filterCat ? () => activateCat(category) : () => setFilterCat(null)
           }
         >
           <span className={styles.animation}>{category}</span>
@@ -93,7 +95,7 @@ const NetzwerkPost = ({
         <div
           className={styles.bodyCity}
           onClick={
-            !filterCity ? () => setFilterCity(city) : () => setFilterCity(null)
+            !filterCity ? () => activateCity(city) : () => setFilterCity(null)
           }
         >
           <span className={styles.animation}>{city}</span>
@@ -103,44 +105,17 @@ const NetzwerkPost = ({
         style={activeIndex == i ? open : closed}
         className={styles.accordeon}
       >
-        <div className={styles.accordeonInner}>
-          <div className={styles.accordeonText} ref={ref}>
-            <PortableText value={beschreibung} />
-            {link && (
-              <p className={styles.netzwerkLink}>
-                <a href={link} target="_blank" rel="noreferrer">
-                  Zur Website ↗
-                </a>
-              </p>
-            )}
-          </div>
-
-          <div
-            className={styles.accordeonImages}
-            onMouseEnter={bilder.length > 1 ? () => setLable("->") : () => {}}
-            onMouseLeave={bilder.length > 1 ? () => setLable("") : () => {}}
-          >
-            <Swiper
-              spaceBetween={50}
-              slidesPerView={1}
-              effect={"fade"}
-              modules={[EffectFade]}
-              fadeEffect={{ crossFade: true }}
-              loop
-            >
-              {bilder.map((bild, i) => (
-                <SwiperSlide key={i}>
-                  <NetzwerkSliderInner
-                    bild={bild}
-                    setHeight={setHeight}
-                    textHeight={textHeight}
-                    height={height}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
+        <NetzwerkAccordeonInner
+          activeIndex={activeIndex}
+          i={i}
+          beschreibung={beschreibung}
+          link={link}
+          bilder={bilder}
+          setLable={setLable}
+          height={height}
+          setHeight={setHeight}
+          setTextHeight={setTextHeight}
+        />
       </div>
     </>
   );

@@ -16,12 +16,8 @@ const Projekte = ({ projekt }) => {
 
   const ref = useRef();
 
-  const scrollAction = () =>
-    ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-
   const updateLength = () => {
     setLength(length + 2);
-    setTimeout(scrollAction, 200);
   };
 
   const router = useRouter();

@@ -112,6 +112,14 @@
   animation: bigWiggle 0.3s alternate-reverse infinite;
 }
 
+.accordeonAnchor {
+  pointer-events: none;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  transform: translateY(-107px)
+}
+
 @keyframes bigWiggle {
   0% {
     transform: rotateZ(0deg);

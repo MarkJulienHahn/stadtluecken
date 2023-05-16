@@ -9,25 +9,24 @@ import NetzwerkPostMobile from "@/Components/NetzwerkPostMobile";
 import MouseElement from "@/Components/MouseElement";
 import Footer from "@/Components/Footer";
 
-import useWindowDimensions from "@/hooks/useWindowDimensions";
-
 const Netzwerk = ({ netzwerk, mobile }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [filterCat, setFilterCat] = useState();
   const [filterCity, setFilterCity] = useState();
   const [lable, setLable] = useState();
 
-  const { windowWidth } = useWindowDimensions();
+  function compare( a, b ) {
+    if ( a.name < b.name ){
+      return -1;
+    }
+    if ( a.name > b.name ){
+      return 1;
+    }
+    return 0;
+  }
 
-  const netzwerkEntries = !filterCat
-    ? netzwerk[0].eintrag
-    : netzwerk[0].eintrag.filter(
-        (entry) => entry.kategorie.kategorie == filterCat
-      );
+  const netzwerkSorted = netzwerk[0].eintrag.sort(compare)
 
-  const netzwerkEntriesCity = !filterCity
-    ? netzwerk[0].eintrag
-    : netzwerkEntries.filter((entry) => entry.stadt.stadt == filterCity);
 
   return (
     <>
@@ -93,46 +92,6 @@ const Netzwerk = ({ netzwerk, mobile }) => {
                 </div>
               </div>
             ))}
-
-            {/* {!filterCity
-            ? netzwerkEntries.map((eintrag, i) => (
-                <NetzwerkPost
-                  key={i}
-                  name={eintrag.name}
-                  category={eintrag.kategorie.kategorie}
-                  city={eintrag.stadt.stadt}
-                  activeIndex={activeIndex}
-                  beschreibung={eintrag.beschreibung}
-                  bilder={eintrag.bilder}
-                  link={eintrag.link}
-                  setActiveIndex={setActiveIndex}
-                  setFilterCat={setFilterCat}
-                  setFilterCity={setFilterCity}
-                  setLable={setLable}
-                  filterCat={filterCat}
-                  filterCity={filterCity}
-                  i={i}
-                />
-              ))
-            : netzwerkEntriesCity.map((eintrag, i) => (
-                <NetzwerkPost
-                  key={i}
-                  name={eintrag.name}
-                  category={eintrag.kategorie.kategorie}
-                  city={eintrag.stadt.stadt}
-                  activeIndex={activeIndex}
-                  beschreibung={eintrag.beschreibung}
-                  bilder={eintrag.bilder}
-                  link={eintrag.link}
-                  setActiveIndex={setActiveIndex}
-                  setFilterCat={setFilterCat}
-                  setFilterCity={setFilterCity}
-                  setLable={setLable}
-                  filterCat={filterCat}
-                  filterCity={filterCity}
-                  i={i}
-                />
-              ))} */}
           </div>
         </div>
       </div>

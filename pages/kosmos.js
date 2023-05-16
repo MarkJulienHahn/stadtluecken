@@ -9,6 +9,7 @@ import client from "../client";
 
 const Kosmos = ({ kosmos }) => {
   const [length, setLength] = useState(3);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const updateLength = () => {
     setLength(length + 3);
@@ -17,11 +18,21 @@ const Kosmos = ({ kosmos }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.introText}>
-        {/* <PortableText value={kosmos[0].kosmos} /> */}
+        <PortableText value={kosmos[0].kosmos} />
       </div>
       <div className={styles.content}>
         {kosmos[0].eintrag.map((eintrag, i) =>
-          i < length ? <KosmosPost eintrag={eintrag} key={i} /> : ""
+          i < length ? (
+            <KosmosPost
+              i={i}
+              activeIndex={activeIndex}
+              setActiveIndex={setActiveIndex}
+              eintrag={eintrag}
+              key={i}
+            />
+          ) : (
+            ""
+          )
         )}
       </div>
       <div className={styles.plus} onClick={updateLength}>

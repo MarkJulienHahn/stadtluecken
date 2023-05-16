@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import styles from "../styles/Kosmos.module.css";
 
 import { PortableText } from "@portabletext/react";
@@ -12,27 +12,35 @@ import "swiper/css/effect-fade";
 
 import { Autoplay, EffectFade } from "swiper";
 
-const KosmosPost = ({ eintrag }) => {
-  const [overlay, setOverlay] = useState(false);
+const KosmosPost = ({ i, eintrag, activeIndex, setActiveIndex }) => {
   const ref = useRef();
+
+  const scrollAction = () =>
+    ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  useEffect(() => {
+    setTimeout(scrollAction, 100);
+  }, []);
 
   return (
     <>
       <div
         className={styles.kosmosPost}
         ref={ref}
-        onClick={() => setOverlay(!overlay)}
+        onClick={activeIndex != i ? () => setActiveIndex(i) : () => setActiveIndex(null) }
       >
-        {overlay && (
+        {activeIndex == i && (
           <div
             className={styles.kosmosOverlay}
-            style={{ height: ref.current.clientHeight }}
+            style={{ height: "100%" }}
           >
             <PortableText value={eintrag.beschreibung} />
 
             {eintrag.beteiligte && (
               <div className={styles.column}>
-                <p className={styles.header}>Beteiligte: </p>
+                <p className={styles.header}>
+                  {eintrag.beteiligte.length > 1 ? "Mitglieder" : "Mitglied"}
+                </p>
                 <div>
                   {eintrag.beteiligte.map((name, i) => (
                     <p key={i}>{name.name}</p>
@@ -43,7 +51,7 @@ const KosmosPost = ({ eintrag }) => {
 
             {eintrag.externe && (
               <div className={styles.column}>
-                <p className={styles.header}>Externe: </p>
+                <p className={styles.header}>Mit </p>
                 <div>
                   {eintrag.externe.map((name, i) => (
                     <p key={i}>{name}</p>
