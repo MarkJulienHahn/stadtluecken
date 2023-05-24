@@ -15,6 +15,7 @@ const Kosmos = ({ kosmos }) => {
     setLength(length + 3);
   };
 
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.introText}>
@@ -36,7 +37,7 @@ const Kosmos = ({ kosmos }) => {
         )}
       </div>
       <div className={styles.plus} onClick={updateLength}>
-        <h2>+</h2>
+        <h2>{kosmos[0].eintrag.length > length && "+"}</h2>
       </div>
     </div>
   );

@@ -4,6 +4,10 @@
   width: 100vw;
 }
 
+.introText {
+  padding: var(--spaceSmall)
+}
+
 .listHeader {
   margin-top: var(--spaceMedium);
   display: flex;
@@ -89,7 +93,7 @@
 }
 
 .accordeonImages {
-  cursor: none;
+  /* cursor: none; */
 }
 
 .imageWrapper {
@@ -112,12 +116,21 @@
   animation: bigWiggle 0.3s alternate-reverse infinite;
 }
 
+.spacer {
+  width: 40px;
+  height: 2px;
+  background: blue;
+  position: absolute;
+  top: -50px;
+  opacity: 0;
+}
+
 .accordeonAnchor {
   pointer-events: none;
   height: 30px;
   width: 30px;
   position: absolute;
-  transform: translateY(-107px)
+  transform: translateY(-107px);
 }
 
 @keyframes bigWiggle {
@@ -199,7 +212,7 @@
     width: 100%;
   }
   .accordeonText {
-    padding: 0 var(--spaceSmall) var(--spaceSmall)
+    padding: 0 var(--spaceSmall) var(--spaceSmall);
   }
   .desktop {
     display: none;

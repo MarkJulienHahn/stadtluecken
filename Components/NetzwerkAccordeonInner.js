@@ -52,6 +52,7 @@ const NetzwerkAccordeonInner = ({
         className={styles.accordeonImages}
         onMouseEnter={bilder.length > 1 ? () => setLable("->") : () => {}}
         onMouseLeave={bilder.length > 1 ? () => setLable("") : () => {}}
+        style={bilder.length == 1 ? {cursor: "default"} : {cursor: "none"}}
       >
         <Swiper
           spaceBetween={50}

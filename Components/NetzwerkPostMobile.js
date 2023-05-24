@@ -30,12 +30,17 @@ const NetzwerkPostMobile = ({
   const [textHeight, setTextHeight] = useState("");
   const [active, setActive] = useState(true);
   const ref = useRef();
+  const spacerRef = useRef();
 
   const open = { height: `${height + 20}px` };
   const closed = { height: "0px" };
 
   const activeStyle = { height: "clamp(28px, 5vh, 45px)", opacity: 1 };
   const inactiveStyle = { height: "0px", opacity: 0 };
+
+  const scrollAction = () => {
+    spacerRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   useEffect(() => {
     // Kein Filter ist Aktiv
@@ -66,8 +71,13 @@ const NetzwerkPostMobile = ({
     setHeight(ref.current.clientHeight);
   });
 
+  useEffect(() => {
+    activeIndex == i && setTimeout(scrollAction, 500);
+  }, [activeIndex]);
+
   return (
     <>
+      <div className={styles.spacer} ref={spacerRef}></div>
       <div
         className={styles.listRow}
         style={active ? activeStyle : inactiveStyle}

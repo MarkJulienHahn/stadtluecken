@@ -13,6 +13,12 @@
   mix-blend-mode: difference;
 }
 
+.navWrapper p {
+  font-size: var(--H1-size);
+  line-height: var(--H1-lineHeight);
+  letter-spacing: var(--H1-letterSpacing);
+}
+
 .navWrapperOpen {
   height: 100%;
   padding: 5.5vh 0 var(--spaceSmall);
@@ -25,6 +31,9 @@
 .navWrapperClosed {
   height: 50px;
   /* transition: all 0.4s ease; */
+}
+
+.navWrapperClosed p {
   font-size: var(--H4-size);
   letter-spacing: var(--H4-letterSpacing);
   line-height: 0px;
@@ -68,7 +77,6 @@
     position: fixed;
     top: 0;
     right: 0;
-    transform: scale(70%)
+    transform: scale(70%);
   }
-
 }
