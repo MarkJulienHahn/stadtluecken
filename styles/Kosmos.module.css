@@ -1,6 +1,6 @@
 .wrapper {
   margin-top: var(--spaceMedium);
-  padding: var(--spaceSmall);
+  padding: 200px var(--spaceSmall);
   width: 100vw;
 }
 

@@ -74,7 +74,7 @@ const Archiv = ({ archiv, setArchive }) => {
                   fill
                   src={entry.bild.asset.url}
                   alt={entry.alt}
-                  blurDataURL={entry.bild.asset.metadata.blurHash}
+                  blurDataURL={entry.bild.asset.metadata.lqip}
                   placeholder="blur"
                 />
               </div>

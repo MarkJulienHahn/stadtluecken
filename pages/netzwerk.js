@@ -35,6 +35,7 @@ const Netzwerk = ({ netzwerk, mobile }) => {
         <div className={styles.introText}>
           <PortableText value={netzwerk[0]?.netzwerk} />
         </div>
+        <div className={styles.gradient}></div>
         <div className={styles.listWrapper}>
           <div className={styles.listHeader}>
             <div className={styles.headerName}>Name</div>

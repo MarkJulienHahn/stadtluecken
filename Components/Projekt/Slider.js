@@ -10,6 +10,7 @@ import "swiper/css/effect-fade";
 import { Autoplay, EffectFade } from "swiper";
 
 const Slider = ({ currentProjekt }) => {
+
   return (
     <div className={styles.projektTopSlider}>
       <Swiper
@@ -26,7 +27,7 @@ const Slider = ({ currentProjekt }) => {
       >
         {currentProjekt.bilder.map((bild, i) => (
           <SwiperSlide key={i}>
-            <SliderInner bild={bild} />
+            <SliderInner fullscreen={true}  bild={bild} />
           </SwiperSlide>
         ))}
       </Swiper>

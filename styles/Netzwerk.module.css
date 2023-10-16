@@ -1,11 +1,11 @@
 .wrapper {
   margin-top: var(--spaceMedium);
-  padding: var(--spaceSmall);
+  padding: 200px var(--spaceSmall);
   width: 100vw;
 }
 
 .introText {
-  padding: var(--spaceSmall)
+  padding: var(--spaceSmall);
 }
 
 .listHeader {
@@ -90,6 +90,19 @@
 
 .accordeonText {
   padding-right: 15px;
+  overflow: scroll;
+}
+
+.accordeonText h1,
+.accordeonText h2,
+.accordeonText h3,
+.accordeonText h4 {
+  font-family: "Protest Book";
+  font-feature-settings: "ss01";
+  font-size: 15pt;
+  font-variation-settings: "wght" 10;
+  letter-spacing: 0;
+  line-height: 20pt;
 }
 
 .accordeonImages {
@@ -130,7 +143,17 @@
   height: 30px;
   width: 30px;
   position: absolute;
-  transform: translateY(-107px);
+  transform: translateY(-127px);
+}
+
+.gradient {
+  width: 100vw;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  background: white;
 }
 
 @keyframes bigWiggle {

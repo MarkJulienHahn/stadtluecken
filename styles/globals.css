@@ -9,8 +9,8 @@
   --H1-lineHeight: clamp(10px, 23vh, 15vw);
   --H1-letterSpacing: clamp(-1px, -0.4vh, 10000px);
 
-  --H2-size: clamp(10px, 12vh, 7.5vw);
-  --H2-lineHeight: clamp(10px, 12vh, 7.5vw);
+  --H2-size: clamp(10px, 10vh, 7.5vw);
+  --H2-lineHeight: clamp(10px, 9vh, 7.5vw);
   --H2-letterSpacing: clamp(-1px, -0.2vh, 10000px);
 
   --H3-size: clamp(10px, 7vh, 16vw);
@@ -96,8 +96,11 @@ h4 {
   letter-spacing: var(--H4-letterSpacing);
 }
 
-h1, h2, h3, h4 {
-  font-weight: normal
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
 }
 
 a {

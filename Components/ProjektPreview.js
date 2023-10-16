@@ -15,12 +15,11 @@ const ProjektPreview = ({ i, titel, bild, slug, setScrollHeight }) => {
     setScrollHeight(ref.current.clientHeight);
   };
 
-  const scrollAction = () =>
-  ref.current.scrollIntoView({ behavior: "smooth"});
+  const scrollAction = () => ref.current.scrollIntoView({ behavior: "smooth" });
 
   useEffect(() => {
     setTimeout(getHeight, 500);
-    i > 4 && scrollAction()
+    i > 4 && scrollAction();
   }, []);
 
   return (
@@ -70,7 +69,13 @@ const ProjektPreview = ({ i, titel, bild, slug, setScrollHeight }) => {
           {/* MEHRZEILIG */}
 
           <div className={styles.previewImage}>
-            <Image fill src={bild.bild.asset.url} alt={bild.bild.alt} />
+            <Image
+              fill
+              src={bild.bild.asset.url}
+              alt={bild.bild.alt}
+              placeholder="blur"
+              blurDataURL={bild.bild.asset.metadata.lqip}
+            />
           </div>
         </ul>
       </div>

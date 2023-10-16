@@ -4,7 +4,7 @@ import { PortableText } from "@portabletext/react";
 const Text = ({ currentProjekt }) => {
   return (
     <div className={styles.textWrapper}>
-      {currentProjekt.beschreibung.ueberschrift}
+      <p className={styles.textHeadline}>{currentProjekt.beschreibung.ueberschrift}</p>
       <div className={styles.textInner}>
         <PortableText value={currentProjekt.beschreibung.beschreibung} />
       </div>

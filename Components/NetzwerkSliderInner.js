@@ -30,10 +30,10 @@ const NetzwerkSliderInner = ({ bild, setHeight, textHeight, height }) => {
       className={styles.imageWrapper}
       onClick={() => swiper.slideNext()}
       ref={ref}
-      style={windowWidth < 1000 ? {
-        height: `${imgHeight}px`,
-        paddingBottom: "20px"
-      } : {}}
+      // style={windowWidth < 1000 ? {
+      //   height: `${imgHeight}px`,
+      //   paddingBottom: "20px"
+      // } : {}}
     >
       <Image
         fill

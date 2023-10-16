@@ -24,20 +24,21 @@ const NetzwerkAccordeonInner = ({
 }) => {
   const ref = useRef();
 
-  const scrollAction = () => ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  const scrollAction = () =>
+    ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   useEffect(() => {
     setTimeout(setTextHeight(ref.current.clientHeight), 500);
   }, []);
 
   useEffect(() => {
-    activeIndex == i && setTimeout(scrollAction, 300);
+    activeIndex == i && setTimeout(scrollAction, 350);
   });
 
   return (
     <div className={styles.accordeonInner}>
       <div className={styles.accordeonAnchor} ref={ref}></div>
-      <div className={styles.accordeonText}>
+      <div className={styles.accordeonText} style={{ height: textHeight }}>
         <PortableText value={beschreibung} />
         {link && (
           <p className={styles.netzwerkLink}>
@@ -52,7 +53,7 @@ const NetzwerkAccordeonInner = ({
         className={styles.accordeonImages}
         onMouseEnter={bilder.length > 1 ? () => setLable("->") : () => {}}
         onMouseLeave={bilder.length > 1 ? () => setLable("") : () => {}}
-        style={bilder.length == 1 ? {cursor: "default"} : {cursor: "none"}}
+        style={bilder.length == 1 ? { cursor: "default" } : { cursor: "none" }}
       >
         <Swiper
           spaceBetween={50}

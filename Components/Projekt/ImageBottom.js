@@ -12,12 +12,14 @@ const ImageBottom = ({ currentProjekt, inView, setArchive }) => {
           </div>
         )} */}
         <div className={styles.projektTopSlider}>
-            <Image
-              fill
-              src={currentProjekt.bildUnten.bild.asset.url}
-              alt={currentProjekt.bildUnten.bild.alt}
-              style={{objectFit:"cover"}}
-            />
+          <Image
+            fill
+            src={currentProjekt.bildUnten.bild.asset.url}
+            alt={currentProjekt.bildUnten.bild.alt}
+            style={{ objectFit: "cover" }}
+            placeholder="blur"
+            blurDataURL={currentProjekt.bildUnten.bild.asset.metadata.lqip}
+          />
         </div>
       </>
     )

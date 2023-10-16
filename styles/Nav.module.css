@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   font-family: "Protest Poster";
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(1, 0.01, 0.68, 0.98);
   z-index: 100;
   color: white;
   mix-blend-mode: difference;
@@ -17,6 +17,7 @@
   font-size: var(--H1-size);
   line-height: var(--H1-lineHeight);
   letter-spacing: var(--H1-letterSpacing);
+  transition: all 0.3s cubic-bezier(1, 0.01, 0.68, 0.98);
 }
 
 .navWrapperOpen {
@@ -26,6 +27,10 @@
   font-size: var(--H1-size);
   line-height: var(--H1-lineHeight);
   letter-spacing: var(--H1-letterSpacing);
+}
+
+.navWrapperOpen p {
+  font-size: var(--H1-size);
 }
 
 .navWrapperClosed {
@@ -41,6 +46,7 @@
 
 .navWrapper a:hover {
   animation: wiggle 0.3s alternate-reverse infinite;
+  background: transparent;
 }
 
 .hamburgerWrapper {

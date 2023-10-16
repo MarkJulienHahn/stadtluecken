@@ -23,6 +23,10 @@
   padding-bottom: var(--spaceLarge);
 }
 
+.link:hover {
+  padding-left: 3px;
+}
+
 .info {
   display: flex;
   width: 100%;
@@ -43,13 +47,5 @@
 .link {
   cursor: pointer;
   position: relative;
-}
-
-.link:hover {
-  animation: wiggle 0.3s alternate-reverse infinite;
-}
-
-@keyframes wiggle {
-  0% {color: red}
-  100% {color: blue}
+  transition: all 0.2s ease;
 }

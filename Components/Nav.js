@@ -31,6 +31,10 @@ const Nav = ({ active, setActive }) => {
     if (scrollPosition > 500) setActive(false);
   }, [scrollPosition > 500]);
 
+  useEffect(() => {
+    router.pathname !== "/" && setActive(false);
+  }, []);
+
   return (
     <div style={{ background: "white" }}>
       <div
@@ -40,7 +44,7 @@ const Nav = ({ active, setActive }) => {
         style={active ? { height: windowHeight } : { height: "50px" }}
       >
         <div className={styles.hamburgerWrapper}>
-          <Hamburger toggled={active} onToggle={() => setActive(!active)}/>
+          <Hamburger toggled={active} onToggle={() => setActive(!active)} />
         </div>
         <Link href="/" onClick={() => setActive(!active)}>
           <p style={router.pathname !== "/" && !active ? invisible : visible}>

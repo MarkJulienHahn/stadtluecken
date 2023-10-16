@@ -10,6 +10,8 @@ import Table from "./Table";
 import Slider from "./Slider";
 import ImageBottom from "./ImageBottom";
 import Archiv from "./Archiv";
+import ProjektSlider from "./ProjektSlider";
+import Footer from "../Footer";
 
 const Projekt = ({ currentProjekt, i }) => {
   const [move, setMove] = useState(0);
@@ -30,12 +32,11 @@ const Projekt = ({ currentProjekt, i }) => {
     setMove(100), setTimeout(routerAction, 500);
   };
 
-  const { ref, inView} = useInView({
+  const { ref, inView } = useInView({
     threshold: 0,
   });
 
-
-  const [ ref2, inView2 ] = useInView({
+  const [ref2, inView2] = useInView({
     threshold: 1,
   });
 
@@ -66,16 +67,22 @@ const Projekt = ({ currentProjekt, i }) => {
           <div>
             <div className={styles.projektMain}>
               <Table currentProjekt={currentProjekt} />
-              <Headline currentProjekt={currentProjekt} />
+              {/* <Headline currentProjekt={currentProjekt} /> */}
               <Text currentProjekt={currentProjekt} />
+              {currentProjekt.bildslider && (
+                <ProjektSlider currentProjekt={currentProjekt} />
+              )}
             </div>
             <div className={styles.projektMainPaddingBottom} ref={ref}>
-              {currentProjekt.archivAbfrage && (
+              {/* {currentProjekt.archivAbfrage && (
                 <div className={styles.archiv} style={inView2 ? {opacity: "1"} : {opacity: "0"}}>
                   <h1 onClick={archiveAction} ref={ref2}>Archiv</h1>
                 </div>
-              )}
+              )} */}
             </div>
+          </div>
+          <div style={{ zIndex: "1000", position: "relative" }}>
+            <Footer white="true" />
           </div>
         </div>
       </div>

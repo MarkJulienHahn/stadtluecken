@@ -1,27 +1,36 @@
 .wrapper {
   margin-top: var(--spaceLarge);
-  padding: var(--spaceSmall);
+  padding: var(--spaceSmall) var(--spaceSmall) 300px var(--spaceSmall);
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   animation: fadeIn 0.5s ease;
+  overscroll-behavior: contain;
 }
 
 .previewWrapper {
   width: calc(50% - 15px);
   margin-bottom: var(--spaceLarge);
   cursor: pointer;
+  padding: 80px;
+}
+
+.previewWrapper:hover img {
+  transform: scale(105%);
+  filter: brightness(0.7);
 }
 
 .previewImage {
   position: relative;
   height: "auto";
   width: 100%;
+  overflow: hidden;
 }
 
 .previewImage img {
   position: relative !important;
+  transition: all 0.2s ease;
 }
 
 .plus {
@@ -50,6 +59,7 @@
   animation: slideIn 0.5s ease;
   overflow-y: scroll;
   transition: margin 0.5s ease;
+  overscroll-behavior: contain;
 }
 
 .projektNav {
@@ -70,6 +80,15 @@
 
 .projektNav span:hover {
   animation: wiggle 0.3s alternate-reverse infinite;
+}
+
+.projektSwiperWrapper {
+  /* position: absolute;
+  left: 0; */
+  width: 100%;
+  background: white;
+  padding: 100px 0;
+  cursor: e-resize
 }
 
 @keyframes slideIn {
@@ -115,7 +134,7 @@
 
 .projektMainPaddingBottom {
   position: relative;
-  height: 100vh;
+  height: 70vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -154,7 +173,7 @@
 }
 
 .textWrapper {
-  padding-top: var(--spaceMedium);
+  padding-top: var(--spaceLarge);
 }
 
 .textInner {
@@ -163,6 +182,10 @@
   word-spacing: var(--pBig-wordSpacing);
   padding-top: var(--spaceExtraSmall);
   /* padding-bottom: var(--space); */
+}
+
+.textHeadline {
+  text-align: center;
 }
 
 .archiv {
