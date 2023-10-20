@@ -14,7 +14,7 @@ const LandingObject = ({ img, front, offset, scale, rotate }) => {
 
   return (
     <div style={style}>
-      <Image src={img} fill style={{ objectFit: "contain" }} sizes="100vw" />
+      <Image src={img} fill style={{ objectFit: "contain" }} sizes="100vw" plceholder="blur" blurDataURL={img} />
     </div>
   );
 };

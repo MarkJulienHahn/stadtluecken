@@ -150,7 +150,7 @@ ul:hover > li.leftbound {
     --H2-size: clamp(10px, 7vh, 100vw);
     --H2-lineHeight: clamp(10px, 7vh, 100vw);
     --H2-letterSpacing: clamp(-1px, -0.05vh, 10000px);
-
+    
     --pBig-size: 11pt;
     --pBig-lineHeight: 15.5pt;
     --pBig-wordSpacing: 0px;
