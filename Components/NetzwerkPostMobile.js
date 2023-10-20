@@ -69,7 +69,7 @@ const NetzwerkPostMobile = ({
 
   useEffect(() => {
     setHeight(ref.current.clientHeight);
-  });
+  },[ref]);
 
   useEffect(() => {
     activeIndex == i && setTimeout(scrollAction, 300);
