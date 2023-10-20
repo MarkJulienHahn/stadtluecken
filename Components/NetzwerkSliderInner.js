@@ -23,7 +23,7 @@ const NetzwerkSliderInner = ({ bild, setHeight, textHeight, height }) => {
 
   useEffect(() => {
     setImageHeight(windowWidth / bild.bild.dimensions.aspectRatio);
-  }, [widhtowWidth]);
+  }, [windowWidth]);
 
   return (
     <div
