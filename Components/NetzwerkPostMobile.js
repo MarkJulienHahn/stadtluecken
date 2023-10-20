@@ -103,7 +103,7 @@ const NetzwerkPostMobile = ({
             onMouseEnter={bilder.length > 1 ? () => setLable("->") : () => {}}
             onMouseLeave={bilder.length > 1 ? () => setLable("") : () => {}}
           >
-            <Swiper
+            {/* <Swiper
               spaceBetween={50}
               slidesPerView={1}
               effect={"fade"}
@@ -121,7 +121,7 @@ const NetzwerkPostMobile = ({
                   />
                 </SwiperSlide>
               ))}
-            </Swiper>
+            </Swiper> */}
           </div>
           <div className={styles.accordeonText}>
             <PortableText value={beschreibung} />
