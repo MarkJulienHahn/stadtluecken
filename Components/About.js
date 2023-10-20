@@ -37,14 +37,14 @@ const About = ({ stadtluecken, mitglieder }) => {
           <PortableText value={stadtluecken.kontakthinweis} />
         </div>
       </div>
+
+
       <div className={styles.links}>
-        <div>
           <a href="mailto:hallo@stadtluecken.de">email</a>
-        </div>
-        <div>
           <a href="https://www.instagram.com/stadtluecken/?hl=de" target="blank" rel="_noreferrer">instagram</a>
-        </div>
       </div>
+
+
     </div>
   );
 };

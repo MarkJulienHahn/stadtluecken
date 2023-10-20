@@ -7,7 +7,7 @@
   font-size: var(--pBig-size);
   line-height: var(--pBig-lineHeight);
   word-spacing: var(--pBig-wordSpacing);
-  padding-bottom: var(--spaceLarge);
+  padding-bottom: 300px;
 }
 
 .headline {
@@ -30,6 +30,7 @@
 .info {
   display: flex;
   width: 100%;
+  padding-top: 300px;
   padding-bottom: var(--spaceLarge);
 }
 
@@ -42,10 +43,35 @@
   font-size: var(--H2-size);
   line-height: var(--H2-lineHeight);
   letter-spacing: var(--H2-letterSpacing);
+  padding-top: 300px;
+  padding-bottom: 300px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .link {
   cursor: pointer;
-  position: relative;
+  /* position: relative; */
   transition: all 0.2s ease;
+}
+
+.links a:hover {
+  animation: wiggle 0.3s alternate-reverse infinite;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  33% {
+    transform: rotateZ(-1deg);
+  }
+  66% {
+    transform: rotateZ(1deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
 }

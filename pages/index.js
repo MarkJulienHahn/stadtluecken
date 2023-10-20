@@ -10,7 +10,7 @@ export default function Home({ stadtluecken, mitglieder }) {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Stadtlücken e.V.</title>
         <meta name="description" content="STADTLUECKEN" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
