@@ -10,7 +10,7 @@ const NetzwerkSliderInner = ({ bild, setHeight, textHeight, height }) => {
   const swiper = useSwiper();
   const ref = useRef();
 
-  const [imgHeight, setImageHeight] = useState(100)
+  const [imgHeight, setImageHeight] = useState(100);
 
   useEffect(() => {
     windowWidth < 1000
@@ -22,8 +22,8 @@ const NetzwerkSliderInner = ({ bild, setHeight, textHeight, height }) => {
   });
 
   useEffect(() => {
-    setImageHeight(windowWidth / bild.bild.dimensions.aspectRatio)
-  })
+    setImageHeight(windowWidth / bild.bild.dimensions.aspectRatio);
+  }, [widhtowWidth]);
 
   return (
     <div
