@@ -132,7 +132,6 @@
 .spacer {
   width: 40px;
   height: 2px;
-  background: blue;
   position: absolute;
   top: -50px;
   opacity: 0;
@@ -242,5 +241,8 @@
   }
   .mobile {
     display: block;
+  }
+  .spacer {
+    top: -72px;
   }
 }

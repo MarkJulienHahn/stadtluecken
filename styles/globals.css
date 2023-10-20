@@ -138,7 +138,7 @@ ul:hover > li.leftbound {
 @media screen and (max-width: 1000px) {
   :root {
     --spaceExtraSmall: 15px;
-    --spaceSmall: 20px;
+    --spaceSmall: 13px;
     --spaceMedium: 45px;
     --spaceLarge: 100px;
     --spaceExtraLarge: 200px;

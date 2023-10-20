@@ -32,8 +32,8 @@ const NetzwerkAccordeonInner = ({
   }, []);
 
   useEffect(() => {
-    activeIndex == i && setTimeout(scrollAction, 350);
-  });
+    activeIndex == i && setTimeout(scrollAction, 500);
+  }, [activeIndex]);
 
   return (
     <div className={styles.accordeonInner}>
