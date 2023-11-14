@@ -26,7 +26,7 @@ const NetzwerkPostMobile = ({
   link,
   i,
 }) => {
-  const [height, setHeight] = useState("");
+  const [height, setHeight] = useState(200);
   const [textHeight, setTextHeight] = useState("");
   const [active, setActive] = useState(true);
   const ref = useRef();
@@ -67,9 +67,9 @@ const NetzwerkPostMobile = ({
       setActive(false);
   }, [filterCat, filterCity]);
 
-  useEffect(() => {
-    setHeight(ref.current.clientHeight);
-  }, [ref]);
+  // useEffect(() => {
+  //   setHeight(ref.current.clientHeight);
+  // }, [ref]);
 
   useEffect(() => {
     activeIndex == i && setTimeout(scrollAction, 300);
@@ -77,8 +77,7 @@ const NetzwerkPostMobile = ({
 
   return (
     <>
-      tst
-      {/*   <div className={styles.spacer} ref={spacerRef}></div>
+      <div className={styles.spacer} ref={spacerRef}></div>
       <div
         className={styles.listRow}
         style={active ? activeStyle : inactiveStyle}
@@ -94,7 +93,7 @@ const NetzwerkPostMobile = ({
           <span className={styles.animation}>{name}</span>
         </div>
       </div>
-      {/* <div
+      <div
         style={activeIndex == i ? open : closed}
         className={styles.accordeon}
       >
@@ -135,7 +134,7 @@ const NetzwerkPostMobile = ({
             )}
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
