@@ -77,8 +77,7 @@ const NetzwerkPostMobile = ({
 
   return (
     <>
-      Test
-      {/* <div className={styles.spacer} ref={spacerRef}></div>
+      <div className={styles.spacer} ref={spacerRef}></div>
       <div
         className={styles.listRow}
         style={active ? activeStyle : inactiveStyle}
@@ -94,7 +93,7 @@ const NetzwerkPostMobile = ({
           <span className={styles.animation}>{name}</span>
         </div>
       </div>
-      <div
+      {/* <div
         style={activeIndex == i ? open : closed}
         className={styles.accordeon}
       >
