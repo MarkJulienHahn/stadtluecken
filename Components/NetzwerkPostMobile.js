@@ -26,13 +26,13 @@ const NetzwerkPostMobile = ({
   link,
   i,
 }) => {
-  const [height, setHeight] = useState(200);
+  const [height, setHeight] = useState(500);
   const [textHeight, setTextHeight] = useState("");
   const [active, setActive] = useState(true);
   const ref = useRef();
   const spacerRef = useRef();
 
-  const open = { height: `${height + 20}px` };
+  const open = { height: `${height + 20}vh` };
   const closed = { height: "0px" };
 
   const activeStyle = { height: "clamp(28px, 5vh, 45px)", opacity: 1 };
@@ -67,9 +67,10 @@ const NetzwerkPostMobile = ({
       setActive(false);
   }, [filterCat, filterCity]);
 
-  // useEffect(() => {
-  //   setHeight(ref.current.clientHeight);
-  // }, [ref]);
+  useEffect(() => {
+    // setHeight(ref.current.clientHeight);
+    setHeight(100);
+  }, [ref]);
 
   useEffect(() => {
     activeIndex == i && setTimeout(scrollAction, 300);
@@ -118,6 +119,7 @@ const NetzwerkPostMobile = ({
                     setHeight={setHeight}
                     textHeight={textHeight}
                     height={height}
+                    activeIndex={activeIndex}
                   />
                 </SwiperSlide>
               ))}

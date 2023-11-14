@@ -6,13 +6,13 @@ import { useSwiper } from "swiper/react";
 import { urlFor } from "@/hooks/useImageUrlBuilder";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 
-const NetzwerkSliderInner = ({ bild, setHeight, textHeight, height }) => {
-  const [width, setWidth] = useState(null);
+const NetzwerkSliderInner = ({ bild, setHeight, textHeight, activeIndex }) => {
+  const [width, setWidth] = useState(300);
   const { windowWidth } = useWindowDimensions();
   const swiper = useSwiper();
   const ref = useRef();
 
-  const [imgHeight, setImageHeight] = useState(100);
+  // const [imgHeight, setImageHeight] = useState(100);
 
   useEffect(() => {
     windowWidth > 1000
@@ -27,11 +27,11 @@ const NetzwerkSliderInner = ({ bild, setHeight, textHeight, height }) => {
             textHeight
         )
       : setHeight(ref.current?.clientWidth / bild.bild.dimensions.aspectRatio);
-  });
+  }, {activeIndex});
 
-  useEffect(() => {
-    setImageHeight(windowWidth / bild.bild.dimensions.aspectRatio);
-  }, [windowWidth]);
+  // useEffect(() => {
+  //   setImageHeight(windowWidth / bild.bild.dimensions.aspectRatio);
+  // }, [windowWidth]);
 
   return (
     <div
