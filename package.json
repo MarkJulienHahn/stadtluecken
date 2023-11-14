@@ -12,6 +12,7 @@
     "@portabletext/react": "^2.0.2",
     "@react-spring/parallax": "^9.7.2",
     "@sanity/client": "^5.4.2",
+    "@sanity/image-url": "^1.0.2",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "hamburger-react": "^2.5.0",

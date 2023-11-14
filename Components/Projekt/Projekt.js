@@ -40,8 +40,6 @@ const Projekt = ({ currentProjekt, i }) => {
     threshold: 1,
   });
 
-  console.log(currentProjekt)
-
   return (
     <>
       {!move && (

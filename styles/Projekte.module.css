@@ -88,7 +88,7 @@
   width: 100%;
   background: white;
   padding: 100px 0;
-  cursor: e-resize
+  cursor: e-resize;
 }
 
 @keyframes slideIn {
@@ -185,11 +185,11 @@
 }
 
 .textInner p {
-  text-indent: 4rem
+  text-indent: 4rem;
 }
 
 .textInner p:first-child {
-  text-indent: 0
+  text-indent: 0;
 }
 
 .textHeadline {
