@@ -1,8 +1,16 @@
-import styles from "../../styles/Projekte.module.css";
+import { useState, useEffect } from "react";
 
+import styles from "../../styles/Projekte.module.css";
+import { urlFor } from "@/hooks/useImageUrlBuilder";
+import useWindowDimensions from "@/hooks/useWindowDimensions";
 import Image from "next/image";
 
 const ImageBottom = ({ currentProjekt, inView, setArchive }) => {
+  const [width, setWidth] = useState(null);
+  const { windowWidth } = useWindowDimensions();
+  useEffect(() => {
+    setWidth(Math.floor(windowWidth * 1.5));
+  }, [windowWidth]);
   return (
     inView && (
       <>
@@ -14,11 +22,15 @@ const ImageBottom = ({ currentProjekt, inView, setArchive }) => {
         <div className={styles.projektTopSlider}>
           <Image
             fill
-            src={currentProjekt.bildUnten.bild.asset.url}
+            src={urlFor(currentProjekt.bildUnten.bild.asset.url)
+              .width(width)
+              .quality(50)
+              .url()}
             alt={currentProjekt.bildUnten.bild.alt}
             style={{ objectFit: "cover" }}
             placeholder="blur"
             blurDataURL={currentProjekt.bildUnten.bild.asset.metadata.lqip}
+            loading="eager"
           />
         </div>
       </>

@@ -28,7 +28,6 @@ const NetzwerkPost = ({
   i,
 }) => {
   const [height, setHeight] = useState("");
-  const [textHeight, setTextHeight] = useState("");
   const [active, setActive] = useState(true);
   const ref = useRef();
 
@@ -38,10 +37,16 @@ const NetzwerkPost = ({
   const activeStyle = { height: "clamp(28px, 5vh, 45px)", opacity: 1 };
   const inactiveStyle = { height: "0px", opacity: 0 };
 
-  const scrollUp = () => {window.scrollTo({ top: 0, behavior: 'smooth' })}
+  const scrollUp = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-  const activateCat = (cat) => {setFilterCat(cat), setActiveIndex(null), setTimeout(scrollUp, 500)}
-  const activateCity = (cit) => {setFilterCity(cit), setActiveIndex(null), setTimeout(scrollUp, 500)}
+  const activateCat = (cat) => {
+    setFilterCat(cat), setActiveIndex(null), setTimeout(scrollUp, 500);
+  };
+  const activateCity = (cit) => {
+    setFilterCity(cit), setActiveIndex(null), setTimeout(scrollUp, 500);
+  };
 
   useEffect(() => {
     // Kein Filter ist Aktiv
@@ -68,7 +73,9 @@ const NetzwerkPost = ({
       setActive(false);
   }, [filterCat, filterCity]);
 
-  console.log(height)
+  useEffect(() => {
+    activeIndex == i && setHeight(ref.current.clientHeight);
+  }, [activeIndex]);
 
   return (
     <>
@@ -107,17 +114,18 @@ const NetzwerkPost = ({
         style={activeIndex == i ? open : closed}
         className={styles.accordeon}
       >
-        <NetzwerkAccordeonInner
-          activeIndex={activeIndex}
-          i={i}
-          beschreibung={beschreibung}
-          link={link}
-          bilder={bilder}
-          setLable={setLable}
-          height={height}
-          setHeight={setHeight}
-          setTextHeight={setTextHeight}
-        />
+        <div ref={ref}>
+          <NetzwerkAccordeonInner
+            activeIndex={activeIndex}
+            i={i}
+            beschreibung={beschreibung}
+            link={link}
+            bilder={bilder}
+            setLable={setLable}
+            height={height}
+            setHeight={setHeight}
+          />
+        </div>
       </div>
     </>
   );

@@ -8,11 +8,24 @@ import NetzwerkPostMobile from "@/Components/NetzwerkPostMobile";
 import MouseElement from "@/Components/MouseElement";
 import Footer from "@/Components/Footer";
 
-const Netzwerk = ({ netzwerk, mobile }) => {
+const Netzwerk = ({ netzwerk }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [filterCat, setFilterCat] = useState();
   const [filterCity, setFilterCity] = useState();
   const [lable, setLable] = useState();
+
+  function sortEintragAlphabetically(obj) {
+    if (obj && obj.eintrag && Array.isArray(obj.eintrag)) {
+      obj.eintrag.sort((a, b) => {
+        const nameA = a.name ? a.name.toLowerCase() : '';
+        const nameB = b.name ? b.name.toLowerCase() : '';
+        return nameA.localeCompare(nameB);
+      });
+    }
+  }
+
+  sortEintragAlphabetically(netzwerk[0])
+
   return (
     <>
       <MouseElement lable={lable} />

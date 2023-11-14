@@ -19,8 +19,6 @@ const NetzwerkAccordeonInner = ({
   bilder,
   height,
   setHeight,
-  textHeight,
-  setTextHeight,
 }) => {
   const ref = useRef();
 
@@ -28,17 +26,13 @@ const NetzwerkAccordeonInner = ({
     ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   useEffect(() => {
-    setTimeout(setTextHeight(ref.current.clientHeight), 500);
-  }, []);
-
-  useEffect(() => {
-    activeIndex == i && setTimeout(scrollAction, 500);
+    activeIndex == i && setTimeout(scrollAction, 400);
   }, [activeIndex]);
 
   return (
     <div className={styles.accordeonInner}>
       <div className={styles.accordeonAnchor} ref={ref}></div>
-      <div className={styles.accordeonText} style={{ height: textHeight }}>
+      <div className={styles.accordeonText}>
         <PortableText value={beschreibung} />
         {link && (
           <p className={styles.netzwerkLink}>
@@ -68,7 +62,6 @@ const NetzwerkAccordeonInner = ({
               <NetzwerkSliderInner
                 bild={bild}
                 setHeight={setHeight}
-                textHeight={textHeight}
                 height={height}
               />
             </SwiperSlide>

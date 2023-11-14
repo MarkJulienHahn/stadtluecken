@@ -232,6 +232,7 @@
     /* filter: drop-shadow(0px -11px 7px rgba(0, 0, 0, 0.1)); */
   }
   .accordeonInner {
+    scroll-padding-top: 100px;
     flex-flow: column;
   }
   .accordeonText,
@@ -249,5 +250,10 @@
   }
   .spacer {
     top: -72px;
+  }
+  .scrollAnchor {
+    width: 10px;
+    height: 10px;
+    transform: translateY(-75px)
   }
 }

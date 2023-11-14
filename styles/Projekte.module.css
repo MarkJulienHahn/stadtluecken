@@ -1,3 +1,36 @@
+@keyframes slideIn {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  33% {
+    transform: rotateZ(-3deg);
+  }
+  66% {
+    transform: rotateZ(3deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
 .wrapper {
   margin-top: var(--spaceLarge);
   padding: var(--spaceSmall) var(--spaceSmall) 300px var(--spaceSmall);
@@ -87,26 +120,8 @@
   left: 0; */
   width: 100%;
   background: white;
-  padding: 100px 0;
-  cursor: e-resize;
-}
-
-@keyframes slideIn {
-  0% {
-    transform: translateY(100vh);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  margin: 100px 0;
+  cursor: none;
 }
 
 .projektTopSlider {
@@ -220,25 +235,11 @@
 
 .imageWrapper {
   height: 88vh;
+  background: white;  
 }
 
 .imageWrapper img {
   position: relative !important;
-}
-
-@keyframes wiggle {
-  0% {
-    transform: rotateZ(0deg);
-  }
-  33% {
-    transform: rotateZ(-3deg);
-  }
-  66% {
-    transform: rotateZ(3deg);
-  }
-  100% {
-    transform: rotateZ(0deg);
-  }
 }
 
 .archivWrapper {
@@ -372,6 +373,20 @@
   opacity: 0;
 }
 
+.controlsWrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 88vh;
+  display: flex;
+  z-index: 100
+}
+
+.controlsWrapper div {
+  width: 50%;
+  height: 100%;
+}
+
 @media screen and (max-width: 1000px) {
   .wrapper {
     flex-direction: column;
@@ -380,6 +395,7 @@
     width: 100%;
     margin-bottom: var(--spaceLarge);
     cursor: pointer;
+    padding: 20px;
   }
   .previewImage {
     padding-top: 5px;
