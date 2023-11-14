@@ -38,7 +38,7 @@ const Netzwerk = ({ netzwerk, mobile }) => {
             </div>
           </div>
           <div className={styles.listBody}>
-            {netzwerk[0].eintrag.map((eintrag, i) => (
+            {/* {netzwerk[0].eintrag.map((eintrag, i) => (
               <div className={styles.eintragWrapper} key={i}>
                 <div className={styles.desktop}>
                   <NetzwerkPost
@@ -77,7 +77,7 @@ const Netzwerk = ({ netzwerk, mobile }) => {
                   />
                 </div>
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
       </div>
