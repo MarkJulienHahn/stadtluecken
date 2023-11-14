@@ -77,7 +77,8 @@ const NetzwerkPostMobile = ({
 
   return (
     <>
-      <div className={styles.spacer} ref={spacerRef}></div>
+      tst
+      {/*   <div className={styles.spacer} ref={spacerRef}></div>
       <div
         className={styles.listRow}
         style={active ? activeStyle : inactiveStyle}
