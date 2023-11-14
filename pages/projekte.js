@@ -67,14 +67,19 @@ const Projekte = ({ projekt }) => {
 export default Projekte;
 
 export async function getServerSideProps() {
-  const projekt = await client.fetch(`* [_type == "projekte"]|order(orderRank){..., 
+  const projekt = await client.fetch(`* [_type == "projekte"]{..., 
   
     "bilder": bilder[]
     {..., "bild": bild{..., 
       asset->{metadata, url}
     }}, 
-
+    
     "bildslider": bildslider[]
+    {..., "bild": bild{..., 
+      asset->{metadata, url}
+    }}, 
+
+    "bildslider2": bildslider2[]
     {..., "bild": bild{..., 
       asset->{metadata, url}
     }}, 
@@ -82,7 +87,6 @@ export async function getServerSideProps() {
     "bildPreview": bildPreview{..., "bild": bild{..., 
       asset->{metadata, url}
     }},
-  
   
     "bildUnten": bildUnten{..., "bild": bild{..., 
       asset->{metadata, url}

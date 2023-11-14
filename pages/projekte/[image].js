@@ -27,11 +27,15 @@ export async function getServerSideProps() {
     {..., "bild": bild{..., 
       asset->{metadata, url}
     }}, 
+
+    "bildslider2": bildslider2[]
+    {..., "bild": bild{..., 
+      asset->{metadata, url}
+    }}, 
   
     "bildPreview": bildPreview{..., "bild": bild{..., 
       asset->{metadata, url}
     }},
-  
   
     "bildUnten": bildUnten{..., "bild": bild{..., 
       asset->{metadata, url}

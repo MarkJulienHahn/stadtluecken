@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import styles from "../styles/Projekte.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { urlFor } from "../hooks/useImageUrlBuilder";
 
 const ProjektPreview = ({ i, titel, bild, slug, setScrollHeight }) => {
   const router = useRouter();
@@ -71,10 +72,11 @@ const ProjektPreview = ({ i, titel, bild, slug, setScrollHeight }) => {
           <div className={styles.previewImage}>
             <Image
               fill
-              src={bild.bild.asset.url}
+              src={urlFor(bild.bild.asset.url).width(1000).quality(50).url()}
               alt={bild.bild.alt}
               placeholder="blur"
               blurDataURL={bild.bild.asset.metadata.lqip}
+              style={{ objectFit: "cover" }}
             />
           </div>
         </ul>

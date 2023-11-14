@@ -9,11 +9,11 @@ import { Autoplay } from "swiper";
 
 import styles from "../../styles/Projekte.module.css";
 
-const ProjektSlider = ({ currentProjekt }) => {
+const ProjektSlider = ({ bilder }) => {
   return (
     <div className={styles.projektSwiperWrapper}>
       <Swiper spaceBetween={50} slidesPerView={1} loop>
-        {currentProjekt.bildslider.map((bild, i) => (
+        {bilder.map((bild, i) => (
           <SwiperSlide key={i}>
             <SliderInner fullscreen={false} bild={bild} />
           </SwiperSlide>

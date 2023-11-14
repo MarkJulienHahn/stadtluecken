@@ -27,7 +27,7 @@ const Slider = ({ currentProjekt }) => {
       >
         {currentProjekt.bilder.map((bild, i) => (
           <SwiperSlide key={i}>
-            <SliderInner fullscreen={true}  bild={bild} />
+            <SliderInner fullscreen={true}  bild={bild} i={i}/>
           </SwiperSlide>
         ))}
       </Swiper>

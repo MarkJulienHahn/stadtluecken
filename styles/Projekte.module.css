@@ -23,7 +23,7 @@
 
 .previewImage {
   position: relative;
-  height: "auto";
+  height: calc(50vh - 15px);
   width: 100%;
   overflow: hidden;
 }
@@ -182,6 +182,14 @@
   word-spacing: var(--pBig-wordSpacing);
   padding-top: var(--spaceExtraSmall);
   /* padding-bottom: var(--space); */
+}
+
+.textInner p {
+  text-indent: 4rem
+}
+
+.textInner p:first-child {
+  text-indent: 0
 }
 
 .textHeadline {

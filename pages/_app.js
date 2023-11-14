@@ -6,7 +6,7 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 export default function App({ Component, pageProps }) {
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
   const [mobile, setMobile] = useState(false);
 
   const { windowWidth } = useWindowDimensions();

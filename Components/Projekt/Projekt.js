@@ -40,6 +40,8 @@ const Projekt = ({ currentProjekt, i }) => {
     threshold: 1,
   });
 
+  console.log(currentProjekt)
+
   return (
     <>
       {!move && (
@@ -68,9 +70,15 @@ const Projekt = ({ currentProjekt, i }) => {
             <div className={styles.projektMain}>
               <Table currentProjekt={currentProjekt} />
               {/* <Headline currentProjekt={currentProjekt} /> */}
-              <Text currentProjekt={currentProjekt} />
+              <Text text={currentProjekt.beschreibung} />
               {currentProjekt.bildslider && (
-                <ProjektSlider currentProjekt={currentProjekt} />
+                <ProjektSlider bilder={currentProjekt.bildslider} />
+              )}
+              {currentProjekt.beschreibung2 && (
+                <Text text={currentProjekt.beschreibung2} />
+              )}
+              {currentProjekt.bildslider2 && (
+                <ProjektSlider bilder={currentProjekt.bildslider2} />
               )}
             </div>
             <div className={styles.projektMainPaddingBottom} ref={ref}>
