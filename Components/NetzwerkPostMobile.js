@@ -69,7 +69,7 @@ const NetzwerkPostMobile = ({
 
   useEffect(() => {
     setHeight(ref.current.clientHeight);
-  },[ref]);
+  }, [ref]);
 
   useEffect(() => {
     activeIndex == i && setTimeout(scrollAction, 300);
@@ -77,7 +77,8 @@ const NetzwerkPostMobile = ({
 
   return (
     <>
-      <div className={styles.spacer} ref={spacerRef}></div>
+      Test
+      {/* <div className={styles.spacer} ref={spacerRef}></div>
       <div
         className={styles.listRow}
         style={active ? activeStyle : inactiveStyle}
@@ -134,7 +135,7 @@ const NetzwerkPostMobile = ({
             )}
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
