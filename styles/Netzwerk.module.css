@@ -223,8 +223,8 @@
     padding: 10px var(--spaceSmall);
   }
   .eintragWrapper {
-    background: white;
-    filter: drop-shadow(0px -11px 7px rgba(0, 0, 0, 0.1));
+    /* background: white; */
+    /* filter: drop-shadow(0px -11px 7px rgba(0, 0, 0, 0.1)); */
   }
   .accordeonInner {
     flex-flow: column;
