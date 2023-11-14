@@ -68,6 +68,8 @@ const NetzwerkPost = ({
       setActive(false);
   }, [filterCat, filterCity]);
 
+  console.log(height)
+
   return (
     <>
       <div

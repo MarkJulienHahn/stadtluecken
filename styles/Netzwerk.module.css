@@ -1,7 +1,12 @@
 .wrapper {
   margin-top: var(--spaceMedium);
-  padding: 200px var(--spaceSmall);
+  padding-top: 200px;
   width: 100vw;
+}
+
+.desktop,
+.listHeader {
+  padding: 0 var(--spaceSmall);
 }
 
 .introText {
@@ -223,7 +228,7 @@
     padding: 10px var(--spaceSmall);
   }
   .eintragWrapper {
-    /* background: white; */
+    /* background: linear-gradient(grey, white); */
     /* filter: drop-shadow(0px -11px 7px rgba(0, 0, 0, 0.1)); */
   }
   .accordeonInner {

@@ -39,7 +39,18 @@ const Netzwerk = ({ netzwerk, mobile }) => {
           </div>
           <div className={styles.listBody}>
             {netzwerk[0].eintrag.map((eintrag, i) => (
-              <div className={styles.eintragWrapper} key={i}>
+              <div
+                className={styles.eintragWrapper}
+                key={i}
+                style={
+                  activeIndex !== i
+                    ? {
+                        background:
+                          "linear-gradient(white 0% 60%, rgb(220,220,220))",
+                      }
+                    : { background: "white" }
+                }
+              >
                 <div className={styles.desktop}>
                   <NetzwerkPost
                     name={eintrag.name}
