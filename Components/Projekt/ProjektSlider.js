@@ -31,12 +31,12 @@ const ProjektSlider = ({ bilder }) => {
       <div className={styles.projektSwiperWrapper}>
         <div className={styles.controlsWrapper}>
           <div
-            onClick={nextFct}
+            onClick={prevFct}
             onMouseEnter={() => setLable("←")}
             onMouseLeave={() => setLable("")}
           ></div>
           <div
-            onClick={prevFct}
+            onClick={nextFct}
             onMouseEnter={() => setLable("→")}
             onMouseLeave={() => setLable("")}
           ></div>

@@ -1,9 +1,8 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import styles from "../styles/Kosmos.module.css";
 
-import { PortableText } from "@portabletext/react";
-
 import Image from "next/image";
+import { urlFor } from "@/hooks/useImageUrlBuilder";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,15 +10,16 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 
 import { Autoplay, EffectFade } from "swiper";
+import KosmosPostOverlay from "./KosmosPostOverlay";
 
-const KosmosPost = ({ i, eintrag, activeIndex, setActiveIndex }) => {
+const KosmosPost = ({ i, eintrag, activeIndex, setActiveIndex, length }) => {
   const ref = useRef();
 
   const scrollAction = () =>
     ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
 
   useEffect(() => {
-    setTimeout(scrollAction, 100);
+    length > 6 && setTimeout(scrollAction, 100);
   }, []);
 
   return (
@@ -27,48 +27,19 @@ const KosmosPost = ({ i, eintrag, activeIndex, setActiveIndex }) => {
       <div
         className={styles.kosmosPost}
         ref={ref}
-        onClick={activeIndex != i ? () => setActiveIndex(i) : () => setActiveIndex(null) }
+        onClick={
+          activeIndex != i
+            ? () => setActiveIndex(i)
+            : () => setActiveIndex(null)
+        }
       >
-        {activeIndex == i && (
-          <div
-            className={styles.kosmosOverlay}
-            style={{ height: "100%" }}
-          >
-            <PortableText value={eintrag.beschreibung} />
+        <KosmosPostOverlay
+          eintrag={eintrag}
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+          i={i}
+        />
 
-            {eintrag.beteiligte && (
-              <div className={styles.column}>
-                <p className={styles.header}>
-                  {eintrag.beteiligte.length > 1 ? "Mitglieder" : "Mitglied"}
-                </p>
-                <div>
-                  {eintrag.beteiligte.map((name, i) => (
-                    <p key={i}>{name.name}</p>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {eintrag.externe && (
-              <div className={styles.column}>
-                <p className={styles.header}>Mit </p>
-                <div>
-                  {eintrag.externe.map((name, i) => (
-                    <p key={i}>{name}</p>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {eintrag.link && (
-              <div className={styles.link}>
-                <a href={eintrag.link} target="_blank" rel="norefferer">
-                  <h3>Mehr</h3>
-                </a>
-              </div>
-            )}
-          </div>
-        )}
         <ul className="animation">
           <li className="rightbound">
             <h3>{eintrag.titelUebersicht[0]}</h3>
@@ -102,19 +73,19 @@ const KosmosPost = ({ i, eintrag, activeIndex, setActiveIndex }) => {
               modules={[Autoplay, EffectFade]}
               fadeEffect={{ crossFade: true }}
               loop
-              // autoplay={{
-              //   delay: 2000,
-              //   disableOnInteraction: false,
-              // }}
+              autoplay={{
+                delay: 2000,
+                disableOnInteraction: false,
+              }}
             >
               {eintrag.bilder.map((bild, i) => (
                 <SwiperSlide key={i}>
                   <div className={styles.swiperImage}>
                     <Image
                       fill
-                      src={bild.bild.url}
+                      src={urlFor(bild.bild.url).height(1000).quality(50).url()}
                       alt={bild.alt}
-                      style={{ objectFit: "contain" }}
+                      style={{ objectFit: "cover" }}
                     />
                   </div>
                 </SwiperSlide>

@@ -40,6 +40,8 @@ export async function getServerSideProps() {
     "bildUnten": bildUnten{..., "bild": bild{..., 
       asset->{metadata, url}
     }},
+
+    "projekt": projekt[]->{slug, titel},
     
     "archiv": archiv[]
     {..., "bild": bild{..., asset->{metadata, url}}, 

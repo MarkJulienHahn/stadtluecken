@@ -24,9 +24,18 @@
   width: 100%;
 }
 
+.swiperImage {
+  height: clamp(300px, 33vw, 500px);
+}
+
 .swiperImage img {
-  height: 400px;
   position: relative !important;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.swiperImage img:hover {
+  transform: scale(1.03);
+  filter: brightness(0.7);
 }
 
 .plus {
@@ -46,14 +55,21 @@
 }
 
 .kosmosOverlay {
-  position: absolute;
+  position: fixed;
+  left: 0;
+  top: 0;
   height: auto;
-  width: calc(33%);
+  width: 100vw;
+  height: 100vh;
+  padding: var(--spaceLarge) var(--spaceMedium);
+  overflow: scroll;
+  overscroll-behavior: none;
   /* background: white; */
-  background: rgba(255, 255, 255, 0.95);
-  /* backdrop-filter: blur(15px); */
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
   z-index: 100;
   cursor: default;
+  transition: transform 0.5s ease;
 }
 
 .kosmosOverlay p {
@@ -64,18 +80,49 @@
   animation: wiggle 0.3s alternate-reverse infinite;
 }
 
+.kosmosText {
+  font-size: var(--pBig-size);
+  line-height: var(--pBig-lineHeight);
+  word-spacing: var(--pBig-wordSpacing);
+  padding-bottom: var(--spaceLarge);
+}
+
 .column {
   display: flex;
   padding-top: 30px;
 }
 
 .link {
-  padding-top: 50px;
+  padding-top: 100px;
   text-align: center;
+}
+
+.link:hover {
+  animation: wiggle 0.3s alternate-reverse infinite;
 }
 
 .header {
   width: 150px;
+}
+
+.hamburgerWrapper {
+  animation: fadeIn 0.5s ease;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  padding: 20px var(--spaceSmall)
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes wiggle {

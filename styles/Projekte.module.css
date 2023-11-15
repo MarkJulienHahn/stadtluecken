@@ -178,6 +178,15 @@
   line-height: var(--pBig-lineHeight);
 }
 
+.tableContent a {
+  display: block;
+  position: absolute;
+}
+
+.tableContent a:hover {
+  animation: wiggle 0.3s alternate-reverse infinite;
+}
+
 .headlineWrapper {
   padding-top: var(--spaceLarge);
 }

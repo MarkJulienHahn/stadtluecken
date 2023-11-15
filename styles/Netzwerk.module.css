@@ -160,6 +160,7 @@
   background: white;
 }
 
+
 @keyframes bigWiggle {
   0% {
     transform: rotateZ(0deg);
@@ -254,6 +255,6 @@
   .scrollAnchor {
     width: 10px;
     height: 10px;
-    transform: translateY(-75px)
+    transform: translateY(-75px);
   }
 }
