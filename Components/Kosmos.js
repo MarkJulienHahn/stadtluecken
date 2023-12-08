@@ -5,9 +5,6 @@ import KosmosPost from "@/Components/KosmosPost";
 
 import { PortableText } from "@portabletext/react";
 
-import client from "../client";
-import Footer from "@/Components/Footer";
-
 const Kosmos = ({kosmos}) => {
     const [length, setLength] = useState(6);
     const [activeIndex, setActiveIndex] = useState(null);

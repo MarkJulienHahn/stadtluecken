@@ -43,31 +43,35 @@ const NetzwerkAccordeonInner = ({
         )}
       </div>
 
-      <div
-        className={styles.accordeonImages}
-        onMouseEnter={bilder.length > 1 ? () => setLable("->") : () => {}}
-        onMouseLeave={bilder.length > 1 ? () => setLable("") : () => {}}
-        style={bilder.length == 1 ? { cursor: "default" } : { cursor: "none" }}
-      >
-        <Swiper
-          spaceBetween={50}
-          slidesPerView={1}
-          effect={"fade"}
-          modules={[EffectFade]}
-          fadeEffect={{ crossFade: true }}
-          loop
+      {bilder && (
+        <div
+          className={styles.accordeonImages}
+          onMouseEnter={bilder.length ? () => setLable("->") : () => {}}
+          onMouseLeave={bilder.length ? () => setLable("") : () => {}}
+          style={
+            bilder.length == 1 ? { cursor: "default" } : { cursor: "none" }
+          }
         >
-          {bilder.map((bild, i) => (
-            <SwiperSlide key={i}>
-              <NetzwerkSliderInner
-                bild={bild}
-                setHeight={setHeight}
-                height={height}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={1}
+            effect={"fade"}
+            modules={[EffectFade]}
+            fadeEffect={{ crossFade: true }}
+            loop
+          >
+            {bilder.map((bild, i) => (
+              <SwiperSlide key={i}>
+                <NetzwerkSliderInner
+                  bild={bild}
+                  setHeight={setHeight}
+                  height={height}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      )}
     </div>
   );
 };

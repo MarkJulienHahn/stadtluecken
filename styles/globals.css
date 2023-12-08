@@ -65,7 +65,6 @@ body {
   font-family: "Protest Book";
   font-feature-settings: "ss01";
   font-size: 15pt;
-  font-variation-settings: "wght" 10;
   background: white;
 }
 
@@ -111,6 +110,10 @@ a {
 
 ul {
   list-style: none;
+}
+
+em {
+  font-family: "Protest Book Italic";
 }
 
 .animation li.rightbound {

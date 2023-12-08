@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 const Projekte = ({ projekt }) => {
   const [length, setLength] = useState(4);
   const [currentIndex, setCurrentIndex] = useState(null);
-  const [scrollHeight, setScrollHeight] = useState("")
+  const [scrollHeight, setScrollHeight] = useState("");
 
   const ref = useRef();
 
@@ -53,10 +53,14 @@ const Projekte = ({ projekt }) => {
           )
         )}
 
-        <div className={styles.anchor} ref={ref} style={{transform: `translateY(-${scrollHeight + 150}px)`}}></div>
+        <div
+          className={styles.anchor}
+          ref={ref}
+          style={{ transform: `translateY(-${scrollHeight + 150}px)` }}
+        ></div>
 
         <div className={styles.plus} onClick={updateLength}>
-         {length < projekt.length &&<h2>+</h2>}
+          {length < projekt.length && <h2>+</h2>}
         </div>
       </div>
       <Footer />
@@ -67,7 +71,8 @@ const Projekte = ({ projekt }) => {
 export default Projekte;
 
 export async function getServerSideProps() {
-  const projekt = await client.fetch(`* [_type == "projekte"]{..., 
+  const projekt =
+    await client.fetch(`* [_type == "projekte"]| order(orderRank asc){..., 
   
     "bilder": bilder[]
     {..., "bild": bild{..., 

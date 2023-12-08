@@ -2,7 +2,13 @@ import Netzwerk from "@/Components/Netzwerk";
 import client from "../client";
 
 const netzwerk = ({ netzwerk, mobile }) => {
-  return <Netzwerk netzwerk={netzwerk} mobile={mobile} />;
+  console.log(netzwerk)
+
+  return (
+    <>
+      <Netzwerk netzwerk={netzwerk} mobile={mobile} />
+    </>
+  );
 };
 
 export default netzwerk;

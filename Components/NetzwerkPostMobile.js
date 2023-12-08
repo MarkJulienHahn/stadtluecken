@@ -67,7 +67,7 @@ const NetzwerkPostMobile = ({
   }, [filterCat, filterCity]);
 
   useEffect(() => {
-    setHeight(ref.current.clientHeight);
+    ref.current?.clientHeight && setHeight(ref.current.clientHeight);
   }, [ref]);
 
   useEffect(() => {
@@ -98,38 +98,40 @@ const NetzwerkPostMobile = ({
         style={activeIndex == i ? open : closed}
         className={styles.accordeon}
       >
-        <div className={styles.accordeonInner} ref={ref}>
-          <div
-            className={styles.accordeonImages}
-            onMouseEnter={bilder.length > 1 ? () => setLable("->") : () => {}}
-            onMouseLeave={bilder.length > 1 ? () => setLable("") : () => {}}
-          >
-            <Swiper
-              spaceBetween={50}
-              slidesPerView={1}
-              effect={"fade"}
-              modules={[EffectFade]}
-              fadeEffect={{ crossFade: true }}
-              loop
+        {bilder && (
+          <div className={styles.accordeonInner} ref={ref}>
+            <div
+              className={styles.accordeonImages}
+              onMouseEnter={bilder.length > 1 ? () => setLable("->") : () => {}}
+              onMouseLeave={bilder.length > 1 ? () => setLable("") : () => {}}
             >
-              {bilder.map((bild, i) => (
-                <SwiperSlide key={i}>
-                  <NetzwerkSliderInner bild={bild} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+              <Swiper
+                spaceBetween={50}
+                slidesPerView={1}
+                effect={"fade"}
+                modules={[EffectFade]}
+                fadeEffect={{ crossFade: true }}
+                loop
+              >
+                {bilder.map((bild, i) => (
+                  <SwiperSlide key={i}>
+                    <NetzwerkSliderInner bild={bild} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+            <div className={styles.accordeonText}>
+              <PortableText value={beschreibung} />
+              {link && (
+                <p className={styles.netzwerkLink}>
+                  <a href={link} target="_blank" rel="noreferrer">
+                    Zur Website ↗
+                  </a>
+                </p>
+              )}
+            </div>
           </div>
-          <div className={styles.accordeonText}>
-            <PortableText value={beschreibung} />
-            {link && (
-              <p className={styles.netzwerkLink}>
-                <a href={link} target="_blank" rel="noreferrer">
-                  Zur Website ↗
-                </a>
-              </p>
-            )}
-          </div>
-        </div>
+        )}
       </div>
     </>
   );
