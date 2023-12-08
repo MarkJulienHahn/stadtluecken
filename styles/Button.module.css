@@ -1,9 +1,15 @@
 .hoverButton {
-    pointer-events: none;
-    z-index: 100;
-    font-size: 60px;
-    color: white;
-    mix-blend-mode: difference;
-    transform: translate(-30px, -50px);
-    white-space: nowrap;
+  pointer-events: none;
+  z-index: 100;
+  font-size: 60px;
+  color: white;
+  mix-blend-mode: difference;
+  transform: translate(-30px, -50px);
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 600px) {
+  .hoverButton {
+    display: none;
+  }
 }

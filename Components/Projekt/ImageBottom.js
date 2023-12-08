@@ -9,7 +9,9 @@ const ImageBottom = ({ currentProjekt, inView, setArchive }) => {
   const [width, setWidth] = useState(null);
   const { windowWidth } = useWindowDimensions();
   useEffect(() => {
-    setWidth(Math.floor(windowWidth * 1.5));
+    windowWidth > 1000
+      ? setWidth(Math.floor(windowWidth * 1.5))
+      : setWidth(1000);
   }, [windowWidth]);
   return (
     inView && (
