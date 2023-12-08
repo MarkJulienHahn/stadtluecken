@@ -9,8 +9,9 @@
   font-family: "Protest Poster";
   transition: all 0.3s cubic-bezier(1, 0.01, 0.68, 0.98);
   z-index: 100;
-  color: white;
-  mix-blend-mode: difference;
+  /* color: white; */
+  /* mix-blend-mode: difference; */
+  transform: translateZ(0px);
 }
 
 .navWrapper p {
@@ -27,6 +28,7 @@
   font-size: var(--H1-size);
   line-height: var(--H1-lineHeight);
   letter-spacing: var(--H1-letterSpacing);
+  transform: translateZ(0px);
 }
 
 .navWrapperOpen p {
@@ -57,16 +59,16 @@
 
 @keyframes wiggle {
   0% {
-    transform: rotateZ(0deg);
+    transform: rotateZ(0deg) translateZ(0px);
   }
   33% {
-    transform: rotateZ(-1deg);
+    transform: rotateZ(-1deg) translateZ(0px);
   }
   66% {
-    transform: rotateZ(1deg);
+    transform: rotateZ(1deg) translateZ(0px);
   }
   100% {
-    transform: rotateZ(0deg);
+    transform: rotateZ(0deg) translateZ(0px);
   }
 }
 
