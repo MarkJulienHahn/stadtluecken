@@ -1,9 +1,14 @@
-import styles from "../styles/Footer.module.css";
+import { PortableText } from "@portabletext/react";
+import styles from "../styles/Impressum.module.css";
 
-const Impressum = ({deactivate}) => {
+const Impressum = ({ content }) => {
   return (
-    <div className={styles.pageWrapper} onClick={deactivate}>Impressum</div>
-  )
-}
+    <>
+      <div className={styles.pageWrapper}>
+        <PortableText value={content.beschreibung} />
+      </div>
+    </>
+  );
+};
 
-export default Impressum
+export default Impressum;

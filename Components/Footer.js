@@ -4,6 +4,8 @@ import styles from "../styles/Footer.module.css";
 import Impressum from "./Impressum";
 import Datenschutz from "./Datenschutz";
 
+import Link from "next/link";
+
 const Footer = ({ white }) => {
   const [overlay, setOverlay] = useState(null);
 
@@ -30,10 +32,10 @@ const Footer = ({ white }) => {
             : { color: "black" }
         }
       >
-        ©{new Date().getFullYear()}{" "}
+        ©{new Date().getFullYear()}
         <span className={styles.logo}>STADTLÜCKEN</span>
-        <a onClick={activateImpressum}>Impressum</a> |
-        <a onClick={activateDatenschutz}>Datenschutz</a> |
+        <Link href="/impressum">Impressum</Link> |
+        <Link href="/datenschutz">Datenschutz</Link> |
         <a
           href="https://www.instagram.com/stadtluecken/?hl=de"
           target="_blank"

@@ -1,8 +1,5 @@
 import Head from "next/head";
-
 import Landing from "@/Components/Landing";
-import About from "@/Components/About";
-import Footer from "@/Components/Footer";
 
 import client from "../client";
 
@@ -16,7 +13,7 @@ export default function Home({ stadtluecken, mitglieder }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Landing stadtluecken={stadtluecken[0]} mitglieder={mitglieder}/>
+        <Landing stadtluecken={stadtluecken[0]} mitglieder={mitglieder} />
       </main>
     </>
   );
@@ -25,7 +22,9 @@ export default function Home({ stadtluecken, mitglieder }) {
 export async function getServerSideProps() {
   const stadtluecken = await client.fetch(`* [_type == "stadtluecken"]{...
   }`);
-  const mitglieder = await client.fetch(`* [_type == "mitglieder"]|order(orderRank)`);
+  const mitglieder = await client.fetch(
+    `* [_type == "mitglieder"]|order(orderRank)`
+  );
   return {
     props: {
       stadtluecken,

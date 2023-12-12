@@ -1,0 +1,19 @@
+.pageWrapper {
+  padding: var(--spaceSmall);
+
+}
+
+.pageWrapper p {
+  padding-bottom: 20pt;
+  width: 50vw
+}
+
+.pageWrapper a {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1000px) {
+  .pageWrapper p {
+    width: 100%;
+  }
+}

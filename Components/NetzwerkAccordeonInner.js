@@ -46,8 +46,8 @@ const NetzwerkAccordeonInner = ({
       {bilder && (
         <div
           className={styles.accordeonImages}
-          onMouseEnter={bilder.length ? () => setLable("->") : () => {}}
-          onMouseLeave={bilder.length ? () => setLable("") : () => {}}
+          onMouseEnter={bilder.length > 1 ? () => setLable("->") : () => {}}
+          onMouseLeave={bilder.length > 1 ? () => setLable("") : () => {}}
           style={
             bilder.length == 1 ? { cursor: "default" } : { cursor: "none" }
           }
