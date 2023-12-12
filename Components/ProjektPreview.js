@@ -20,7 +20,7 @@ const ProjektPreview = ({ i, titel, bild, slug, setScrollHeight }) => {
 
   useEffect(() => {
     setTimeout(getHeight, 500);
-    i > 4 && scrollAction();
+    // i > 4 && scrollAction();
   }, []);
 
   return (

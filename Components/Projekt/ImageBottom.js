@@ -14,7 +14,8 @@ const ImageBottom = ({ currentProjekt, inView, setArchive }) => {
       : setWidth(1000);
   }, [windowWidth]);
   return (
-    inView && (
+    inView &&
+    currentProjekt.bildUnten && (
       <>
         {/* {currentProjekt.archivAbfrage && (
           <div className={styles.archiv}>

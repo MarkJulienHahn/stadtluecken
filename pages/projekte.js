@@ -36,22 +36,18 @@ const Projekte = ({ projekt }) => {
       )}
 
       <div className={styles.wrapper}>
-        {projekt.map((projekt, i) =>
-          i < length ? (
-            <>
-              <ProjektPreview
-                key={i}
-                i={i}
-                titel={projekt.titelUebersicht}
-                bild={projekt.bildPreview}
-                slug={projekt.slug}
-                setScrollHeight={setScrollHeight}
-              />
-            </>
-          ) : (
-            ""
-          )
-        )}
+        {projekt.map((projekt, i) => (
+          <>
+            <ProjektPreview
+              key={i}
+              i={i}
+              titel={projekt.titelUebersicht}
+              bild={projekt.bildPreview}
+              slug={projekt.slug}
+              setScrollHeight={setScrollHeight}
+            />
+          </>
+        ))}
 
         <div
           className={styles.anchor}
@@ -59,9 +55,9 @@ const Projekte = ({ projekt }) => {
           style={{ transform: `translateY(-${scrollHeight + 150}px)` }}
         ></div>
 
-        <div className={styles.plus} onClick={updateLength}>
+        {/* <div className={styles.plus} onClick={updateLength}>
           {length < projekt.length && <h2>+</h2>}
-        </div>
+        </div> */}
       </div>
       <Footer />
     </>
