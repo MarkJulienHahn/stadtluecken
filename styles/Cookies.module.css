@@ -1,0 +1,26 @@
+.cookiesWrapper {
+  position: fixed;
+  bottom: 0;
+  background: white;
+  width: 100%;
+  padding: var(--spaceExtraSmall);
+  z-index: 1000;
+  filter: drop-shadow(10px 10px 10px black);
+  display: flex;
+  justify-content: space-between;
+}
+
+.cookiesWrapper a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cookiesButton {
+  padding-left: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+  .cookiesWrapper {
+    font-size: 10pt;
+  }
+}
