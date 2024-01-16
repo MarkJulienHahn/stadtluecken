@@ -25,7 +25,7 @@ const Slider = ({ currentProjekt }) => {
           disableOnInteraction: false,
         }}
       >
-        {currentProjekt.bilder.map((bild, i) => (
+        {currentProjekt?.bilder?.map((bild, i) => (
           <SwiperSlide key={i}>
             <SliderInner fullscreen={true}  bild={bild} i={i}/>
           </SwiperSlide>

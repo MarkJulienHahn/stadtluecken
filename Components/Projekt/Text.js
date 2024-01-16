@@ -6,7 +6,7 @@ const Text = ({ text }) => {
     <div className={styles.textWrapper}>
       <p className={styles.textHeadline}>{text?.ueberschrift}</p>
       <div className={styles.textInner}>
-        <PortableText value={text.beschreibung} />
+        <PortableText value={text?.beschreibung} />
       </div>
     </div>
   );
