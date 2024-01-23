@@ -16,7 +16,7 @@ const About = ({ stadtluecken, mitglieder }) => {
           </li>
         )}
       </ul>
-      <p className={styles.headline}>Mitglieder</p>
+      <p className={styles.headline}>Und viele mehr...</p>
       <ul className={styles.list}>
       {mitglieder.map((mitglied, i) => 
           !mitglied.aktiv &&

@@ -53,7 +53,7 @@
 
 .hamburgerWrapper {
   position: fixed;
-  top: 15px;
+  top: 0;
   right: 20px;
 }
 
